@@ -65,3 +65,9 @@ For your convenience, a GitHub repository has been created for this assignment. 
 Access the repository using the following link:
 
 [https://github.com/20CS2023-FS24/programming-assignment-1](https://github.com/20CS2023-FS24/programming-assignment-1)
+
+This repository is only provided for the convenience of those familiar with GitHub, and may want to use it to manage their assignment code, and work in a Codespace.
+
+```{note}
+Please refer to GitHub's documentation on [creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for more information:
+```
