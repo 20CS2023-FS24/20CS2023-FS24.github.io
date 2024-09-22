@@ -1,9 +1,5 @@
 # Assignment 1
 
-```{warning}
-I am currently updating this assignment to improve the instructions and provide more detailed guidance. There were too many complications that I felt distracted from understanding the core implementation of OOP in Python. Please wait for a few days as I make these updates. If you have any questions or need assistance, feel free to reach out to me.
-```
-
 **Instagram-like Application Using Object-Oriented Programming (OOP)**
 
 In this assignment, you will implement an Instagram-like application using **Object-Oriented Programming (OOP)** principles in Python. The application will simulate basic social media functionalities, including user creation, following, posting, and commenting. The focus will be on two core OOP principles: **encapsulation** and **composition**.
@@ -59,6 +55,11 @@ python -m unittest tests_comment.py
 You can also run all of the tests at once using the following command:
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover
 ```
 
+## GitHub Repository
+
+A GitHub repository has been created for this assignment.  This repository contains the starter code and the unit tests for the assignment. You can access the repository using the following link:
+
+[https://github.com/20CS2023-FS24/programming-assignment-1](https://github.com/20CS2023-FS24/programming-assignment-1)
