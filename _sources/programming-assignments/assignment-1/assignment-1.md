@@ -60,6 +60,8 @@ python -m unittest discover
 
 ## GitHub Repository
 
-A GitHub repository has been created for this assignment.  This repository contains the starter code and the unit tests for the assignment. You can access the repository using the following link:
+For your convenience, a GitHub repository has been created for this assignment.  This repository contains the starter code and the unit tests for the assignment. This is a template repository, so you can create a new repository from this template and start working on the assignment.
+
+Access the repository using the following link:
 
 [https://github.com/20CS2023-FS24/programming-assignment-1](https://github.com/20CS2023-FS24/programming-assignment-1)
