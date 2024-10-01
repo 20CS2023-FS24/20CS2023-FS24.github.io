@@ -782,27 +782,24 @@
 <section id="zero-type-index-key" class="title-slide slide level3 hide center">
 <h3>Zero, Type, Index, Key</h3>
 <div class="r-stack">
-<div class="sourceCode" id="cb14" data-code-line-numbers="1-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb14-2"><a href=""></a>    <span class="co"># some code</span></span>
-<span id="cb14-3"><a href=""></a><span class="cf">except</span> <span class="op">&lt;</span>ExceptionType<span class="op">&gt;</span>:</span>
-<span id="cb14-4"><a href=""></a>    <span class="co"># handle specific exception</span></span>
-<span id="cb14-5"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb15" data-code-line-numbers="1-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14" data-code-line-numbers="1-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="dv">1</span> <span class="op">/</span> <span class="dv">0</span></span>
+<span id="cb14-2"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A <code>ZeroDivisionError</code> is raised when dividing by zero.</p>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb16" data-code-line-numbers="1-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="bu">int</span>(<span class="st">"abc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15" data-code-line-numbers="1-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="bu">int</span>(<span class="st">"abc"</span>)</span>
+<span id="cb15-2"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A <code>ValueError</code> is raised when the right type is used, but a wrong value.</p>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb17" data-code-line-numbers="1-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb17-2"><a href=""></a><span class="bu">list</span>[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16" data-code-line-numbers="1-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb16-2"><a href=""></a><span class="bu">list</span>[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>An <code>IndexError</code> is raised when accessing an index that is out of range.</p>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb18" data-code-line-numbers="1-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">dict</span> <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Jane"</span>}</span>
-<span id="cb18-2"><a href=""></a><span class="bu">dict</span>[<span class="st">"email"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17" data-code-line-numbers="1-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="bu">dict</span> <span class="op">=</span> {<span class="st">"name"</span>: <span class="st">"Jane"</span>}</span>
+<span id="cb17-2"><a href=""></a><span class="bu">dict</span>[<span class="st">"email"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A <code>KeyError</code> is raised when accessing a non-existent dictionary key.</p>
 </div>
 </div>
@@ -817,8 +814,8 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb19" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="im">import</span> math</span>
-<span id="cb19-2"><a href=""></a>math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">import</span> math</span>
+<span id="cb18-2"><a href=""></a>math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
@@ -826,16 +823,16 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb20" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="im">import</span> math</span>
-<span id="cb20-2"><a href=""></a>math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="im">import</span> math</span>
+<span id="cb19-2"><a href=""></a>math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
-<span id="cb21-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb21-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"/workspaces/20CS2023/test.py"</span>, line 2, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
-<span id="cb21-5"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="ex">math.sqrt</span><span class="er">(</span><span class="ex">-1</span><span class="kw">)</span></span>
-<span id="cb21-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError:</span> math domain error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
+<span id="cb20-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb20-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"/workspaces/20CS2023/test.py"</span>, line 2, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
+<span id="cb20-5"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="ex">math.sqrt</span><span class="er">(</span><span class="ex">-1</span><span class="kw">)</span></span>
+<span id="cb20-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError:</span> math domain error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -846,7 +843,16 @@
 <p>Python’s exception handling mechanism is the <code>try</code>/<code>except</code> model.</p>
 <div class="smaller-80">
 <div class="r-stack">
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="cf">try</span>:</span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb21-2"><a href=""></a>    <span class="co"># some code</span></span>
+<span id="cb21-3"><a href=""></a><span class="cf">except</span>:</span>
+<span id="cb21-4"><a href=""></a>    <span class="co"># handle exception</span></span>
+<span id="cb21-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb21-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
+<span id="cb21-7"><a href=""></a><span class="cf">finally</span>:</span>
+<span id="cb21-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
+<div class="sourceCode" id="cb22" data-code-line-numbers="1-2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="cf">try</span>:</span>
 <span id="cb22-2"><a href=""></a>    <span class="co"># some code</span></span>
 <span id="cb22-3"><a href=""></a><span class="cf">except</span>:</span>
 <span id="cb22-4"><a href=""></a>    <span class="co"># handle exception</span></span>
@@ -854,15 +860,6 @@
 <span id="cb22-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
 <span id="cb22-7"><a href=""></a><span class="cf">finally</span>:</span>
 <span id="cb22-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
-<div class="sourceCode" id="cb23" data-code-line-numbers="1-2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb23-2"><a href=""></a>    <span class="co"># some code</span></span>
-<span id="cb23-3"><a href=""></a><span class="cf">except</span>:</span>
-<span id="cb23-4"><a href=""></a>    <span class="co"># handle exception</span></span>
-<span id="cb23-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb23-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
-<span id="cb23-7"><a href=""></a><span class="cf">finally</span>:</span>
-<span id="cb23-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><code>try</code>: Block</strong></p>
 <ul>
 <li>Contains the code that might raise an exception.</li>
@@ -870,7 +867,21 @@
 </ul>
 </div>
 <div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
-<div class="sourceCode" id="cb24" data-code-line-numbers="3-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="cf">try</span>:</span>
+<div class="sourceCode" id="cb23" data-code-line-numbers="3-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb23-2"><a href=""></a>    <span class="co"># some code</span></span>
+<span id="cb23-3"><a href=""></a><span class="cf">except</span>:</span>
+<span id="cb23-4"><a href=""></a>    <span class="co"># handle exception</span></span>
+<span id="cb23-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb23-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
+<span id="cb23-7"><a href=""></a><span class="cf">finally</span>:</span>
+<span id="cb23-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong><code>except:</code> Block</strong></p>
+<ul>
+<li>Contains the code to handle the exception if one occurs.</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
+<div class="sourceCode" id="cb24" data-code-line-numbers="5-6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="cf">try</span>:</span>
 <span id="cb24-2"><a href=""></a>    <span class="co"># some code</span></span>
 <span id="cb24-3"><a href=""></a><span class="cf">except</span>:</span>
 <span id="cb24-4"><a href=""></a>    <span class="co"># handle exception</span></span>
@@ -878,20 +889,6 @@
 <span id="cb24-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
 <span id="cb24-7"><a href=""></a><span class="cf">finally</span>:</span>
 <span id="cb24-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong><code>except:</code> Block</strong></p>
-<ul>
-<li>Contains the code to handle the exception if one occurs.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
-<div class="sourceCode" id="cb25" data-code-line-numbers="5-6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb25-2"><a href=""></a>    <span class="co"># some code</span></span>
-<span id="cb25-3"><a href=""></a><span class="cf">except</span>:</span>
-<span id="cb25-4"><a href=""></a>    <span class="co"># handle exception</span></span>
-<span id="cb25-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb25-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
-<span id="cb25-7"><a href=""></a><span class="cf">finally</span>:</span>
-<span id="cb25-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><code>else:</code> Block</strong> (<em>optional</em>)</p>
 <ul>
 <li>This block runs only if no exceptions are raised in the <code>try</code> block.</li>
@@ -899,14 +896,14 @@
 </ul>
 </div>
 <div class="fragment fade-in-then-out absolute top-0 left-0" style="width: 100%; ">
-<div class="sourceCode" id="cb26" data-code-line-numbers="7-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb26-2"><a href=""></a>    <span class="co"># some code</span></span>
-<span id="cb26-3"><a href=""></a><span class="cf">except</span>:</span>
-<span id="cb26-4"><a href=""></a>    <span class="co"># handle exception</span></span>
-<span id="cb26-5"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb26-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
-<span id="cb26-7"><a href=""></a><span class="cf">finally</span>:</span>
-<span id="cb26-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25" data-code-line-numbers="7-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb25-2"><a href=""></a>    <span class="co"># some code</span></span>
+<span id="cb25-3"><a href=""></a><span class="cf">except</span>:</span>
+<span id="cb25-4"><a href=""></a>    <span class="co"># handle exception</span></span>
+<span id="cb25-5"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb25-6"><a href=""></a>    <span class="co"># execute if no exception</span></span>
+<span id="cb25-7"><a href=""></a><span class="cf">finally</span>:</span>
+<span id="cb25-8"><a href=""></a>    <span class="co"># cleanup code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><code>finally:</code> Block</strong> (<em>optional</em>)</p>
 <ul>
 <li>This block will always execute after the <code>try</code> and <code>except</code> blocks, regardless of whether an exception was raised or not.</li>
@@ -928,11 +925,11 @@
 </section>
 <section id="catching-all-exceptions" class="title-slide slide level3 hide center">
 <h3>Catching All Exceptions</h3>
-<div class="sourceCode" id="cb27" data-code-line-numbers="3-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb27-2"><a href=""></a>    <span class="co"># some code</span></span>
-<span id="cb27-3"><a href=""></a><span class="cf">except</span>:</span>
-<span id="cb27-4"><a href=""></a>    <span class="co"># handle exceptions</span></span>
-<span id="cb27-5"><a href=""></a>    <span class="co"># even those you didn't expect -- this is bad practice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26" data-code-line-numbers="3-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb26-2"><a href=""></a>    <span class="co"># some code</span></span>
+<span id="cb26-3"><a href=""></a><span class="cf">except</span>:</span>
+<span id="cb26-4"><a href=""></a>    <span class="co"># handle exceptions</span></span>
+<span id="cb26-5"><a href=""></a>    <span class="co"># even those you didn't expect -- this is bad practice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The generic <code>except</code> block will catch <strong>all</strong> errors – this is not recommended. <strong>You should always catch specific exceptions</strong>.</p>
 </section>
 
@@ -945,11 +942,11 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb28" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb28-2"><a href=""></a>    <span class="im">import</span> math</span>
-<span id="cb28-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb28-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb28-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"ValueError"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb27-2"><a href=""></a>    <span class="im">import</span> math</span>
+<span id="cb27-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb27-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb27-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"ValueError"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
@@ -957,16 +954,16 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb29" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb29-2"><a href=""></a>    <span class="im">import</span> math</span>
-<span id="cb29-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb29-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb29-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"ValueError"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb28-2"><a href=""></a>    <span class="im">import</span> math</span>
+<span id="cb28-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb28-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb28-5"><a href=""></a>    <span class="bu">print</span>(<span class="st">"ValueError"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
-<span id="cb30-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
+<span id="cb29-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">ValueError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -974,29 +971,29 @@
 <section id="catching-multiple-exceptions" class="title-slide slide level3 hide center">
 <h3>Catching Multiple Exceptions</h3>
 <p>You can handle multiple exceptions by adding multiple <code>except</code>.</p>
-<div class="sourceCode" id="cb31" data-code-line-numbers="6,9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="kw">def</span> process_data(data):</span>
-<span id="cb31-2"><a href=""></a>    <span class="cf">try</span>:</span>
-<span id="cb31-3"><a href=""></a>        value <span class="op">=</span> <span class="bu">int</span>(data)</span>
-<span id="cb31-4"><a href=""></a>        result <span class="op">=</span> <span class="dv">100</span> <span class="op">/</span> value</span>
-<span id="cb31-5"><a href=""></a>        <span class="cf">return</span> result</span>
-<span id="cb31-6"><a href=""></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb31-7"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Invalid data: cannot convert to integer"</span>)</span>
-<span id="cb31-8"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb31-9"><a href=""></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
-<span id="cb31-10"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Invalid data: cannot divide by zero"</span>)</span>
-<span id="cb31-11"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30" data-code-line-numbers="6,9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="kw">def</span> process_data(data):</span>
+<span id="cb30-2"><a href=""></a>    <span class="cf">try</span>:</span>
+<span id="cb30-3"><a href=""></a>        value <span class="op">=</span> <span class="bu">int</span>(data)</span>
+<span id="cb30-4"><a href=""></a>        result <span class="op">=</span> <span class="dv">100</span> <span class="op">/</span> value</span>
+<span id="cb30-5"><a href=""></a>        <span class="cf">return</span> result</span>
+<span id="cb30-6"><a href=""></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb30-7"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Invalid data: cannot convert to integer"</span>)</span>
+<span id="cb30-8"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb30-9"><a href=""></a>    <span class="cf">except</span> <span class="pp">ZeroDivisionError</span>:</span>
+<span id="cb30-10"><a href=""></a>        <span class="bu">print</span>(<span class="st">"Invalid data: cannot divide by zero"</span>)</span>
+<span id="cb30-11"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="catching-groups-of-exceptions" class="title-slide slide level3 hide center">
 <h3>Catching Groups of Exceptions</h3>
 <p>You can group exceptions into a single <code>except</code> block using parentheses. This is useful when you want to handle multiple exceptions in the same way.</p>
-<div class="sourceCode" id="cb32" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="kw">def</span> divide_numbers(a, b):</span>
-<span id="cb32-2"><a href=""></a>    <span class="cf">try</span>:</span>
-<span id="cb32-3"><a href=""></a>        result <span class="op">=</span> a <span class="op">/</span> b</span>
-<span id="cb32-4"><a href=""></a>        <span class="cf">return</span> result</span>
-<span id="cb32-5"><a href=""></a>    <span class="cf">except</span> (<span class="pp">ValueError</span>, <span class="pp">TypeError</span>, <span class="pp">ZeroDivisionError</span>):</span>
-<span id="cb32-6"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"An error occurred."</span>)</span>
-<span id="cb32-7"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="kw">def</span> divide_numbers(a, b):</span>
+<span id="cb31-2"><a href=""></a>    <span class="cf">try</span>:</span>
+<span id="cb31-3"><a href=""></a>        result <span class="op">=</span> a <span class="op">/</span> b</span>
+<span id="cb31-4"><a href=""></a>        <span class="cf">return</span> result</span>
+<span id="cb31-5"><a href=""></a>    <span class="cf">except</span> (<span class="pp">ValueError</span>, <span class="pp">TypeError</span>, <span class="pp">ZeroDivisionError</span>):</span>
+<span id="cb31-6"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"An error occurred."</span>)</span>
+<span id="cb31-7"><a href=""></a>        <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>Grouping exceptions can be useful when you need to handle multiple different exceptions in the same way. It helps keep the code cleaner and reduces redundancy. An example where grouping exceptions makes sense is a mathemetical operation that involves type mismatches and mathematical operations that are invalid.</p>
 <style type="text/css">
@@ -1017,12 +1014,12 @@
 <h2>The <code>as</code> Keyword</h2>
 <div class="smaller-70">
 <p>The <code>as</code> keyword in exception handling allows you to capture the raised exception object, giving you access to its details.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb33-2"><a href=""></a>    <span class="co"># Some code that might raise an exception</span></span>
-<span id="cb33-3"><a href=""></a>    result <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span></span>
-<span id="cb33-4"><a href=""></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
-<span id="cb33-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb33-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb32-2"><a href=""></a>    <span class="co"># Some code that might raise an exception</span></span>
+<span id="cb32-3"><a href=""></a>    result <span class="op">=</span> <span class="dv">10</span> <span class="op">/</span> <span class="dv">0</span></span>
+<span id="cb32-4"><a href=""></a><span class="cf">except</span> <span class="pp">ZeroDivisionError</span> <span class="im">as</span> e:</span>
+<span id="cb32-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb32-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Key points:</strong></p>
 <ul>
 <li><code>as e</code> assigns the exception object to the variable <code>e</code> (can be any valid variable name, but <code>e</code> is commonly used)</li>
@@ -1061,12 +1058,12 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb34" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb34-2"><a href=""></a>    <span class="im">import</span> math</span>
-<span id="cb34-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb34-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
-<span id="cb34-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb34-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb33-2"><a href=""></a>    <span class="im">import</span> math</span>
+<span id="cb33-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb33-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
+<span id="cb33-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
@@ -1074,18 +1071,18 @@
 <div class="code-with-filename-file">
 <pre><strong>test.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb35" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb35-2"><a href=""></a>    <span class="im">import</span> math</span>
-<span id="cb35-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb35-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
-<span id="cb35-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb35-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34" data-filename="test.py"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb34-2"><a href=""></a>    <span class="im">import</span> math</span>
+<span id="cb34-3"><a href=""></a>    math.sqrt(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb34-4"><a href=""></a><span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
+<span id="cb34-5"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error occurred: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-6"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Error type: </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">.</span><span class="va">__name__</span><span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
-<span id="cb36-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> occurred: math domain error</span>
-<span id="cb36-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> type: ValueError</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
+<span id="cb35-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> occurred: math domain error</span>
+<span id="cb35-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> type: ValueError</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1095,17 +1092,17 @@
 <h2>Raising Exceptions</h2>
 <div class="smaller-90">
 <p>You can manually raise exceptions using the <code>raise</code> keyword. This is useful for enforcing application-specific constraints or when detecting an error condition that Python’s built-in checks don’t cover.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="kw">def</span> validate_age(age):</span>
-<span id="cb37-2"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(age, (<span class="bu">int</span>, <span class="bu">float</span>)):</span>
-<span id="cb37-3"><a href=""></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Age must be a number"</span>)</span>
-<span id="cb37-4"><a href=""></a>    <span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb37-5"><a href=""></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Age cannot be negative"</span>)</span>
-<span id="cb37-6"><a href=""></a>    <span class="cf">return</span> age</span>
-<span id="cb37-7"><a href=""></a></span>
-<span id="cb37-8"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb37-9"><a href=""></a>    validate_age(<span class="op">-</span><span class="dv">5</span>)</span>
-<span id="cb37-10"><a href=""></a><span class="cf">except</span> (<span class="pp">ValueError</span>, <span class="pp">TypeError</span>):</span>
-<span id="cb37-11"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Validation error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a><span class="kw">def</span> validate_age(age):</span>
+<span id="cb36-2"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(age, (<span class="bu">int</span>, <span class="bu">float</span>)):</span>
+<span id="cb36-3"><a href=""></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Age must be a number"</span>)</span>
+<span id="cb36-4"><a href=""></a>    <span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb36-5"><a href=""></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Age cannot be negative"</span>)</span>
+<span id="cb36-6"><a href=""></a>    <span class="cf">return</span> age</span>
+<span id="cb36-7"><a href=""></a></span>
+<span id="cb36-8"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb36-9"><a href=""></a>    validate_age(<span class="op">-</span><span class="dv">5</span>)</span>
+<span id="cb36-10"><a href=""></a><span class="cf">except</span> (<span class="pp">ValueError</span>, <span class="pp">TypeError</span>):</span>
+<span id="cb36-11"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Validation error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -1170,21 +1167,21 @@
 <li>Remove <code>return "From try block"</code> and run again</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="kw">def</span> test_function(value):</span>
-<span id="cb38-2"><a href=""></a>    <span class="cf">try</span>:</span>
-<span id="cb38-3"><a href=""></a>        <span class="cf">if</span> value <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb38-4"><a href=""></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"An error occurred!"</span>)</span>
-<span id="cb38-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"From try block"</span></span>
-<span id="cb38-6"><a href=""></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
-<span id="cb38-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"From except block"</span></span>
-<span id="cb38-8"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb38-9"><a href=""></a>        <span class="cf">return</span> <span class="st">"From else block"</span></span>
-<span id="cb38-10"><a href=""></a>    <span class="cf">finally</span>:</span>
-<span id="cb38-11"><a href=""></a>        <span class="cf">return</span> <span class="st">"From finally block"</span></span>
-<span id="cb38-12"><a href=""></a></span>
-<span id="cb38-13"><a href=""></a><span class="co"># Test different inputs:</span></span>
-<span id="cb38-14"><a href=""></a><span class="bu">print</span>(test_function(<span class="dv">1</span>))  <span class="co"># Test with value = 1</span></span>
-<span id="cb38-15"><a href=""></a><span class="bu">print</span>(test_function(<span class="dv">0</span>))  <span class="co"># Test with value = 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="kw">def</span> test_function(value):</span>
+<span id="cb37-2"><a href=""></a>    <span class="cf">try</span>:</span>
+<span id="cb37-3"><a href=""></a>        <span class="cf">if</span> value <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb37-4"><a href=""></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"An error occurred!"</span>)</span>
+<span id="cb37-5"><a href=""></a>        <span class="cf">return</span> <span class="st">"From try block"</span></span>
+<span id="cb37-6"><a href=""></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb37-7"><a href=""></a>        <span class="cf">return</span> <span class="st">"From except block"</span></span>
+<span id="cb37-8"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb37-9"><a href=""></a>        <span class="cf">return</span> <span class="st">"From else block"</span></span>
+<span id="cb37-10"><a href=""></a>    <span class="cf">finally</span>:</span>
+<span id="cb37-11"><a href=""></a>        <span class="cf">return</span> <span class="st">"From finally block"</span></span>
+<span id="cb37-12"><a href=""></a></span>
+<span id="cb37-13"><a href=""></a><span class="co"># Test different inputs:</span></span>
+<span id="cb37-14"><a href=""></a><span class="bu">print</span>(test_function(<span class="dv">1</span>))  <span class="co"># Test with value = 1</span></span>
+<span id="cb37-15"><a href=""></a><span class="bu">print</span>(test_function(<span class="dv">0</span>))  <span class="co"># Test with value = 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
@@ -1197,11 +1194,11 @@
 <h3>Sublcassing <code>Exception</code> Class</h3>
 <div class="smaller-80">
 <p><strong>User-defined exceptions</strong> can be created by subclassing the built-in <code>Exception</code> class or its subclasses. These are beneficial when you need more specific error signaling that standard exceptions don’t adequately cover.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="kw">class</span> InsufficientFundsError(<span class="pp">Exception</span>):</span>
-<span id="cb39-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, balance, amount):</span>
-<span id="cb39-3"><a href=""></a>        <span class="va">self</span>.balance <span class="op">=</span> balance</span>
-<span id="cb39-4"><a href=""></a>        <span class="va">self</span>.amount <span class="op">=</span> amount</span>
-<span id="cb39-5"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="ss">f"Insufficient funds: balance </span><span class="sc">{</span>balance<span class="sc">}</span><span class="ss">, required </span><span class="sc">{</span>amount<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="kw">class</span> InsufficientFundsError(<span class="pp">Exception</span>):</span>
+<span id="cb38-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, balance, amount):</span>
+<span id="cb38-3"><a href=""></a>        <span class="va">self</span>.balance <span class="op">=</span> balance</span>
+<span id="cb38-4"><a href=""></a>        <span class="va">self</span>.amount <span class="op">=</span> amount</span>
+<span id="cb38-5"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="ss">f"Insufficient funds: balance </span><span class="sc">{</span>balance<span class="sc">}</span><span class="ss">, required </span><span class="sc">{</span>amount<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>This class extends <code>Exception</code> to create a new type of error.</li>
 <li>The <code>super().__init__()</code> call ensures proper initialization of the base <code>Exception</code> class.</li>
@@ -1226,34 +1223,34 @@
 <section id="custom-exception-example" class="title-slide slide level3 exercise center">
 <h3>Custom-Exception Example</h3>
 <div class="smaller-75">
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a><span class="kw">class</span> InsufficientFundsError(<span class="pp">Exception</span>):</span>
-<span id="cb40-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, balance, amount):</span>
-<span id="cb40-3"><a href=""></a>        <span class="va">self</span>.balance <span class="op">=</span> balance</span>
-<span id="cb40-4"><a href=""></a>        <span class="va">self</span>.amount <span class="op">=</span> amount</span>
-<span id="cb40-5"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="ss">f"Insufficient funds: balance </span><span class="sc">{</span>balance<span class="sc">}</span><span class="ss">, required </span><span class="sc">{</span>amount<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb40-6"><a href=""></a></span>
-<span id="cb40-7"><a href=""></a><span class="kw">def</span> withdraw(balance, amount):</span>
-<span id="cb40-8"><a href=""></a>    <span class="cf">if</span> balance <span class="op">&lt;</span> amount:</span>
-<span id="cb40-9"><a href=""></a>        <span class="cf">raise</span> InsufficientFundsError(balance, amount)</span>
-<span id="cb40-10"><a href=""></a>    <span class="cf">return</span> balance <span class="op">-</span> amount</span>
-<span id="cb40-11"><a href=""></a></span>
-<span id="cb40-12"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb40-13"><a href=""></a>    withdraw(<span class="dv">100</span>, <span class="dv">150</span>)</span>
-<span id="cb40-14"><a href=""></a><span class="cf">except</span> InsufficientFundsError <span class="im">as</span> e:</span>
-<span id="cb40-15"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Transaction failed: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb40-16"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Current balance: </span><span class="sc">{</span>e<span class="sc">.</span>balance<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb40-17"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Attempted withdrawal: </span><span class="sc">{</span>e<span class="sc">.</span>amount<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="kw">class</span> InsufficientFundsError(<span class="pp">Exception</span>):</span>
+<span id="cb39-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, balance, amount):</span>
+<span id="cb39-3"><a href=""></a>        <span class="va">self</span>.balance <span class="op">=</span> balance</span>
+<span id="cb39-4"><a href=""></a>        <span class="va">self</span>.amount <span class="op">=</span> amount</span>
+<span id="cb39-5"><a href=""></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(<span class="ss">f"Insufficient funds: balance </span><span class="sc">{</span>balance<span class="sc">}</span><span class="ss">, required </span><span class="sc">{</span>amount<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb39-6"><a href=""></a></span>
+<span id="cb39-7"><a href=""></a><span class="kw">def</span> withdraw(balance, amount):</span>
+<span id="cb39-8"><a href=""></a>    <span class="cf">if</span> balance <span class="op">&lt;</span> amount:</span>
+<span id="cb39-9"><a href=""></a>        <span class="cf">raise</span> InsufficientFundsError(balance, amount)</span>
+<span id="cb39-10"><a href=""></a>    <span class="cf">return</span> balance <span class="op">-</span> amount</span>
+<span id="cb39-11"><a href=""></a></span>
+<span id="cb39-12"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb39-13"><a href=""></a>    withdraw(<span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb39-14"><a href=""></a><span class="cf">except</span> InsufficientFundsError <span class="im">as</span> e:</span>
+<span id="cb39-15"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Transaction failed: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb39-16"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Current balance: </span><span class="sc">{</span>e<span class="sc">.</span>balance<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb39-17"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Attempted withdrawal: </span><span class="sc">{</span>e<span class="sc">.</span>amount<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="r-stack">
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment fade-in absolute" style="width: 100%; ">
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
-<span id="cb42-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Transaction</span> failed: Insufficient funds: balance 100, required 150</span>
-<span id="cb42-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Current</span> balance: 100</span>
-<span id="cb42-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Attempted</span> withdrawal: 150</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> python test.py</span>
+<span id="cb41-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Transaction</span> failed: Insufficient funds: balance 100, required 150</span>
+<span id="cb41-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Current</span> balance: 100</span>
+<span id="cb41-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">Attempted</span> withdrawal: 150</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1350,15 +1347,15 @@
 <div class="smaller-70">
 <p>The <code>with</code> statement simplifies working with context managers by ensuring resources are correctly managed.</p>
 <p>In traditional resource handling, you must explicitly ensure that resources are released, even when an error occurs:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'example.txt'</span>, <span class="st">'w'</span>)</span>
-<span id="cb43-2"><a href=""></a><span class="cf">try</span>:</span>
-<span id="cb43-3"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
-<span id="cb43-4"><a href=""></a><span class="cf">finally</span>:</span>
-<span id="cb43-5"><a href=""></a>    f.close()  <span class="co"># Ensures the file is closed even if an error occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'example.txt'</span>, <span class="st">'w'</span>)</span>
+<span id="cb42-2"><a href=""></a><span class="cf">try</span>:</span>
+<span id="cb42-3"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
+<span id="cb42-4"><a href=""></a><span class="cf">finally</span>:</span>
+<span id="cb42-5"><a href=""></a>    f.close()  <span class="co"># Ensures the file is closed even if an error occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Using the <code>with</code> statement ensures resources are always managed correctly, with much less code:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
-<span id="cb44-2"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
-<span id="cb44-3"><a href=""></a><span class="co"># The file is automatically closed after this block, even if an exception occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb43-2"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
+<span id="cb43-3"><a href=""></a><span class="co"># The file is automatically closed after this block, even if an exception occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Automatic Resource Management</strong>: The with statement guarantees that the file is closed properly, even if an exception is raised during the write operation.</li>
 <li><strong>Cleaner and More Readable</strong>: Reduces boilerplate code and makes the intention clear—handle the resource safely and efficiently.</li>
@@ -1376,18 +1373,18 @@
 <li><code>yield</code>: The point where the resource is provided to the caller for use.</li>
 <li><code>finally</code>: Ensures that resource cleanup occurs automatically, even if an exception is raised during usage.</li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="im">from</span> contextlib <span class="im">import</span> contextmanager</span>
-<span id="cb45-2"><a href=""></a></span>
-<span id="cb45-3"><a href=""></a><span class="at">@contextmanager</span></span>
-<span id="cb45-4"><a href=""></a><span class="kw">def</span> file_manager(filename, mode):</span>
-<span id="cb45-5"><a href=""></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(filename, mode)</span>
-<span id="cb45-6"><a href=""></a>    <span class="cf">try</span>:</span>
-<span id="cb45-7"><a href=""></a>        <span class="cf">yield</span> <span class="bu">file</span></span>
-<span id="cb45-8"><a href=""></a>    <span class="cf">finally</span>:</span>
-<span id="cb45-9"><a href=""></a>        <span class="bu">file</span>.close()</span>
-<span id="cb45-10"><a href=""></a></span>
-<span id="cb45-11"><a href=""></a><span class="cf">with</span> file_manager(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
-<span id="cb45-12"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="im">from</span> contextlib <span class="im">import</span> contextmanager</span>
+<span id="cb44-2"><a href=""></a></span>
+<span id="cb44-3"><a href=""></a><span class="at">@contextmanager</span></span>
+<span id="cb44-4"><a href=""></a><span class="kw">def</span> file_manager(filename, mode):</span>
+<span id="cb44-5"><a href=""></a>    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(filename, mode)</span>
+<span id="cb44-6"><a href=""></a>    <span class="cf">try</span>:</span>
+<span id="cb44-7"><a href=""></a>        <span class="cf">yield</span> <span class="bu">file</span></span>
+<span id="cb44-8"><a href=""></a>    <span class="cf">finally</span>:</span>
+<span id="cb44-9"><a href=""></a>        <span class="bu">file</span>.close()</span>
+<span id="cb44-10"><a href=""></a></span>
+<span id="cb44-11"><a href=""></a><span class="cf">with</span> file_manager(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb44-12"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <p>Common use cases of custom context managers include managing database connections, file operations when custom behavior beyond simple open/close is required, and handling locks for synchronization in multi-threaded applications.</p>
@@ -1445,29 +1442,29 @@
 <section id="class-based-context-manager-example" class="title-slide slide level2 hide center">
 <h2>Class-Based Context Manager Example</h2>
 <div class="smaller-75">
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a><span class="kw">class</span> FileManager:</span>
-<span id="cb46-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename, mode):</span>
-<span id="cb46-3"><a href=""></a>        <span class="va">self</span>.filename <span class="op">=</span> filename</span>
-<span id="cb46-4"><a href=""></a>        <span class="va">self</span>.mode <span class="op">=</span> mode</span>
-<span id="cb46-5"><a href=""></a></span>
-<span id="cb46-6"><a href=""></a>    <span class="kw">def</span> <span class="fu">__enter__</span>(<span class="va">self</span>):</span>
-<span id="cb46-7"><a href=""></a>        <span class="co"># Acquire the resource</span></span>
-<span id="cb46-8"><a href=""></a>        <span class="va">self</span>.<span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="va">self</span>.filename, <span class="va">self</span>.mode)</span>
-<span id="cb46-9"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.<span class="bu">file</span></span>
-<span id="cb46-10"><a href=""></a></span>
-<span id="cb46-11"><a href=""></a>    <span class="kw">def</span> <span class="fu">__exit__</span>(<span class="va">self</span>, exc_type, exc_value, traceback):</span>
-<span id="cb46-12"><a href=""></a>        <span class="co"># Release the resource</span></span>
-<span id="cb46-13"><a href=""></a>        <span class="va">self</span>.<span class="bu">file</span>.close()</span>
-<span id="cb46-14"><a href=""></a>        <span class="co"># Optionally handle exceptions if needed</span></span>
-<span id="cb46-15"><a href=""></a>        <span class="cf">if</span> exc_type:</span>
-<span id="cb46-16"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"An exception occurred: </span><span class="sc">{</span>exc_value<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb46-17"><a href=""></a>        <span class="co"># Returning False propagates the exception, True would suppress it</span></span>
-<span id="cb46-18"><a href=""></a>        <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb46-19"><a href=""></a></span>
-<span id="cb46-20"><a href=""></a><span class="co"># Usage:</span></span>
-<span id="cb46-21"><a href=""></a><span class="cf">with</span> FileManager(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
-<span id="cb46-22"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
-<span id="cb46-23"><a href=""></a><span class="co"># The file is automatically closed when the block exits, even if an exception occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="kw">class</span> FileManager:</span>
+<span id="cb45-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filename, mode):</span>
+<span id="cb45-3"><a href=""></a>        <span class="va">self</span>.filename <span class="op">=</span> filename</span>
+<span id="cb45-4"><a href=""></a>        <span class="va">self</span>.mode <span class="op">=</span> mode</span>
+<span id="cb45-5"><a href=""></a></span>
+<span id="cb45-6"><a href=""></a>    <span class="kw">def</span> <span class="fu">__enter__</span>(<span class="va">self</span>):</span>
+<span id="cb45-7"><a href=""></a>        <span class="co"># Acquire the resource</span></span>
+<span id="cb45-8"><a href=""></a>        <span class="va">self</span>.<span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="va">self</span>.filename, <span class="va">self</span>.mode)</span>
+<span id="cb45-9"><a href=""></a>        <span class="cf">return</span> <span class="va">self</span>.<span class="bu">file</span></span>
+<span id="cb45-10"><a href=""></a></span>
+<span id="cb45-11"><a href=""></a>    <span class="kw">def</span> <span class="fu">__exit__</span>(<span class="va">self</span>, exc_type, exc_value, traceback):</span>
+<span id="cb45-12"><a href=""></a>        <span class="co"># Release the resource</span></span>
+<span id="cb45-13"><a href=""></a>        <span class="va">self</span>.<span class="bu">file</span>.close()</span>
+<span id="cb45-14"><a href=""></a>        <span class="co"># Optionally handle exceptions if needed</span></span>
+<span id="cb45-15"><a href=""></a>        <span class="cf">if</span> exc_type:</span>
+<span id="cb45-16"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"An exception occurred: </span><span class="sc">{</span>exc_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb45-17"><a href=""></a>        <span class="co"># Returning False propagates the exception, True would suppress it</span></span>
+<span id="cb45-18"><a href=""></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb45-19"><a href=""></a></span>
+<span id="cb45-20"><a href=""></a><span class="co"># Usage:</span></span>
+<span id="cb45-21"><a href=""></a><span class="cf">with</span> FileManager(<span class="st">'example.txt'</span>, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb45-22"><a href=""></a>    f.write(<span class="st">'Hello, World!'</span>)</span>
+<span id="cb45-23"><a href=""></a><span class="co"># The file is automatically closed when the block exits, even if an exception occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
