@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture-7-17SEP2024_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture-7-17SEP2024_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture-7-17SEP2024_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture-7-17SEP2024_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture-7-17SEP2024_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture-7-17SEP2024_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture-7-17SEP2024_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="lecture-7-17SEP2024_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <title>lecture-7-17sep2024</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture-7-17SEP2024_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture-7-17SEP2024_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture-7-17SEP2024_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="../../quarto-styles.css">
+  <link href="lecture-7-17SEP2024_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture-7-17SEP2024_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture-7-17SEP2024_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-7-17SEP2024_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="tuesday-september-17-2024" class="title-slide slide level1 center">
+<h1>Tuesday, September 17, 2024</h1>
+
+</section>
+<section id="agenda" class="title-slide slide level2 center">
+<h2>Agenda</h2>
+<p>Today’s lecture is part 1 of our discussion on object-oriented programming and how to create classes and objects in Python. We will reinforce these concepts with coding sessions to implement OOP concepts in Python for an Instagram-like application.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Programming Assignment 1 will be completion of the coding sessions over the next three classes that cover object-oriented programming. An announcement will be posted on Canvas shortly.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="introduction-to-object-oriented-programming" class="title-slide slide level1 center">
+<h1>Introduction to Object-Oriented Programming</h1>
+
+</section>
+<section id="what-is-object-oriented-programming" class="title-slide slide level2 center">
+<h2>What is Object-Oriented Programming?</h2>
+<ul>
+<li>A programming approach that organizes code around objects</li>
+<li>Classes serve as blueprints for creating objects</li>
+<li>Objects are instances of classes, like houses built from blueprints.</li>
+<li>Objects contain data (attributes) and code (methods)</li>
+</ul>
+<aside class="notes">
+<p>Object-Oriented Programming is a way of organizing our code that focuses on objects. These objects are like containers that hold both data (which we call attributes) and the code that operates on that data (which we call methods). In OOP, we use classes as templates or blueprints to create these objects. This approach helps us structure our code in a way that often matches how we think about things in the real world.</p>
+<p>** Analogy: **</p>
+<p>Think of a class as a blueprint for a house. The blueprint isn’t a house itself, but it contains all the information needed to build a house. It specifies things like the layout, the number of rooms, where the doors and windows go, and so on.</p>
+<p>An object, then, is like an actual house built from that blueprint. You can build many houses from the same blueprint, just like you can create many objects from the same class. Each house (or object) will have the same basic structure, but might have different specific details (like paint color, furniture, etc.).</p>
+<p>This analogy helps us understand how classes serve as templates for creating objects, and how multiple objects can be created from the same class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="programming-paradigms" class="title-slide slide level2 center scrollable">
+<h2>Programming Paradigms</h2>
+<ul>
+<li><strong>Procedural Programming</strong>: Step-by-step instructions</li>
+<li><strong>Functional Programming</strong>: Functions to solve problems</li>
+<li><strong>Object-Oriented Programming</strong>: Objects with data and methods</li>
+</ul>
+<aside class="notes">
+<p>Before we dive deeper into OOP, let’s briefly compare it to other programming paradigms:</p>
+<ol type="1">
+<li><p>Procedural Programming is like following a recipe. It’s a step-by-step approach where you write a series of instructions for the computer to follow in order.</p></li>
+<li><p>Functional Programming focuses on using functions to solve problems. It treats computation as the evaluation of mathematical functions and avoids changing state and mutable data.</p></li>
+<li><p>Object-Oriented Programming, which we’re focusing on, organizes code into objects that contain both data and the methods to manipulate that data.</p></li>
+</ol>
+<p>Each paradigm has its strengths, and understanding them helps us choose the best approach for a given problem.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="core-concepts-of-oop" class="title-slide slide level2 center scrollable">
+<h2>Core Concepts of OOP</h2>
+<ul>
+<li><strong>Encapsulation</strong>: Bundling data and methods</li>
+<li><strong>Inheritance</strong>: Creating new classes from existing ones</li>
+<li><strong>Polymorphism</strong>: Treating different objects as the same type</li>
+<li><strong>Abstraction</strong>: Hiding complex details</li>
+</ul>
+<aside class="notes">
+<p>OOP is built on four main concepts:</p>
+<ol type="1">
+<li><p>Encapsulation: This is about bundling data and the methods that work on that data within one unit or object. It’s like putting related things in a box and controlling access to what’s inside.</p></li>
+<li><p>Inheritance: This allows us to create new classes based on existing ones. It’s a way of reusing code and creating a hierarchy of classes.</p></li>
+<li><p>Polymorphism: This concept allows objects of different types to be treated as objects of a common type. It’s about designing interfaces that can work with different types of data.</p></li>
+<li><p>Abstraction: This involves hiding complex implementation details and showing only the necessary features of an object. It’s about creating a simplified view of an object.</p></li>
+</ol>
+<p>We’ll explore each of these concepts in more depth in future sessions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="benefits-of-oop" class="title-slide slide level2 center scrollable">
+<h2>Benefits of OOP</h2>
+<ul>
+<li>Modularity</li>
+<li>Reusability</li>
+<li>Flexibility</li>
+<li>Maintainability</li>
+</ul>
+<aside class="notes">
+<p>OOP offers several key benefits:</p>
+<ol type="1">
+<li><p>Modularity: OOP allows us to break our code into self-contained units (objects). This makes our code easier to understand and manage.</p></li>
+<li><p>Reusability: Through inheritance, we can reuse code from existing classes when creating new ones. This saves time and reduces redundancy.</p></li>
+<li><p>Flexibility: OOP makes it easier to extend and modify our code. We can add new objects without changing existing ones.</p></li>
+<li><p>Maintainability: The structure of OOP makes it easier to identify and fix issues in our code. It also makes it easier for different programmers to work on the same project.</p></li>
+</ol>
+<p>These benefits become especially apparent as our programs grow larger and more complex.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="learning-oop-with-a-project" class="title-slide slide level2 center">
+<h2>Learning OOP with a Project</h2>
+<p>Over the next few lectures we will implement elements of a simple Instagram-like app using OOP concepts.</p>
+<aside class="notes">
+<p>To help solidify our understanding of OOP, we’re going to work on a project throughout this course. We’ll be building a simplified version of Instagram.</p>
+<p>This project will give us a chance to apply the OOP concepts we learn in a practical, real-world context. We’ll create classes for users, posts, and other features of the app. As we learn new OOP concepts, we’ll use them to add functionality to our app.</p>
+<p>This hands-on approach will help reinforce the concepts we discuss in lectures and give you practical experience in using OOP to build a real application.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+</section>
+<section>
+<section id="classes-and-objects" class="title-slide slide level1 center">
+<h1>Classes and Objects</h1>
+
+</section>
+<section id="what-is-a-class" class="title-slide slide level2 center scrollable">
+<h2>What is a Class?</h2>
+<ul>
+<li>A blueprint for creating objects</li>
+<li>Defines attributes (data) and methods (functions)</li>
+<li>Allows us to create multiple objects with the same structure</li>
+</ul>
+<aside class="notes">
+<p>A class in Python is like a blueprint or a template. It defines the structure and behavior that all objects of that class will have. Think of it as a way to create your own custom data type.</p>
+<p>Key points to emphasize:</p>
+<ol type="1">
+<li>A class is not an object itself, but a description of how to create objects.</li>
+<li>It encapsulates both data (attributes) and behavior (methods) in a single unit.</li>
+<li>Classes allow us to create complex data structures that model real-world concepts or abstract ideas.</li>
+</ol>
+<p>Example: A <code>Car</code> class might define attributes like <code>color</code> and <code>model</code>, and methods like <code>start_engine()</code> and <code>drive()</code>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="defining-a-class" class="title-slide slide level2 center scrollable">
+<h2>Defining a Class</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb1-2"><a href=""></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Here’s how we define a simple class in Python:</p>
+<ol type="1">
+<li>We use the <code>class</code> keyword to start the class definition.</li>
+<li>This is followed by the name of the class (in this case, <code>User</code>). By convention, class names in Python use CamelCase.</li>
+<li>The colon (:) indicates the start of the class body.</li>
+<li>In this simple example, we use <code>pass</code> as a placeholder. It means “do nothing” and is used when we want to have an empty class.</li>
+</ol>
+<p>This <code>User</code> class doesn’t have any attributes or methods yet, but it’s a valid class definition.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="the-__init__-method" class="title-slide slide level2 center scrollable">
+<h2>The <code>__init__</code> Method</h2>
+<p>The <code>__init__</code> method is the constructor for a class. It’s called automatically when we create a new object of the class.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb2-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, username, email):</span>
+<span id="cb2-3"><a href=""></a>        <span class="va">self</span>.username <span class="op">=</span> username</span>
+<span id="cb2-4"><a href=""></a>        <span class="va">self</span>.email <span class="op">=</span> email</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>The <code>__init__</code> method is a special method in Python classes:</p>
+<ol type="1">
+<li>It’s called a constructor because it’s used to construct new objects of the class.</li>
+<li>Python calls this method automatically when we create a new object of the class.</li>
+<li>The name <code>__init__</code> is special in Python. The double underscores indicate it’s a special method.</li>
+<li>The first parameter is always <code>self</code>, which refers to the instance being created.</li>
+<li>We can add other parameters (<code>username</code> and <code>email</code> in this case) to initialize the object with specific values.</li>
+<li>Inside <code>__init__</code>, we typically set up the initial state of the object by assigning values to attributes.</li>
+</ol>
+<p>In this example: - <code>self.username = username</code> creates an attribute called <code>username</code> and assigns it the value of the <code>username</code> parameter. - <code>self.email = email</code> does the same for the <code>email</code> attribute.</p>
+<p>The <code>__init__</code> method allows us to ensure that every object starts with the attributes we want it to have. It’s a crucial part of defining the structure of our objects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="attributes-and-methods" class="title-slide slide level2 center scrollable">
+<h2>Attributes and Methods</h2>
+<ul>
+<li>Attributes: Data associated with an object</li>
+<li>Methods: Functions that operate on the object’s data (behavior)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb3-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, username, email):</span>
+<span id="cb3-3"><a href=""></a>        <span class="va">self</span>.username <span class="op">=</span> username  <span class="co"># attribute</span></span>
+<span id="cb3-4"><a href=""></a>        <span class="va">self</span>.email <span class="op">=</span> email        <span class="co"># attribute</span></span>
+<span id="cb3-5"><a href=""></a>    </span>
+<span id="cb3-6"><a href=""></a>    <span class="kw">def</span> display_info(<span class="va">self</span>):       <span class="co"># method</span></span>
+<span id="cb3-7"><a href=""></a>        <span class="bu">print</span>(<span class="ss">f"Username: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>username<span class="sc">}</span><span class="ss">, Email: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>email<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ol type="1">
+<li>Attributes are variables that store data for each object. In our <code>User</code> class, <code>username</code> and <code>email</code> are attributes.</li>
+<li>Methods are functions defined inside a class that can operate on the object’s data. The <code>display_info</code> method in our example is a simple method that prints the user’s information.</li>
+<li>Both attributes and methods are accessed using dot notation (e.g., <code>user.username</code> or <code>user.display_info()</code>).</li>
+</ol>
+<p>For now, it’s important to understand that classes can contain both data (attributes) and behavior (methods).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="what-is-an-object" class="title-slide slide level2 center">
+<h2>What is an Object?</h2>
+<ul>
+<li>An instance of a class</li>
+<li>Has its own unique set of attribute values</li>
+<li>Shares methods defined by the class</li>
+</ul>
+<aside class="notes">
+<p>An object is a specific instance of a class. If a class is like a blueprint, an object is like a house built from that blueprint.</p>
+<p>Key points about objects: 1. Each object has its own set of attributes, which can have different values from other objects of the same class. 2. All objects of a class share the same methods, but these methods can behave differently based on the object’s attribute values. 3. Objects allow us to work with specific instances of the data structures we define in our classes. 4. They’re the concrete realization of the abstract concept defined by the class.</p>
+<p>Example: If <code>User</code> is our class, we might create objects like <code>user1</code> and <code>user2</code>, each with their own <code>username</code> and <code>email</code> values.</p>
+<p>Objects are fundamental to object-oriented programming because they allow us to create and manipulate multiple instances of our custom data types, each with its own state.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="creating-objects" class="title-slide slide level2 center scrollable">
+<h2>Creating Objects</h2>
+<p>We <strong>instantiate</strong> objects from a class to create concrete instances with specific attribute values.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>user1 <span class="op">=</span> User(<span class="st">"alice"</span>, <span class="st">"alice@example.com"</span>)</span>
+<span id="cb4-2"><a href=""></a>user2 <span class="op">=</span> User(<span class="st">"bob"</span>, <span class="st">"bob@example.com"</span>)</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="bu">print</span>(user1.username)  <span class="co"># Output: alice</span></span>
+<span id="cb4-5"><a href=""></a><span class="bu">print</span>(user2.email)     <span class="co"># Output: bob@example.com</span></span>
+<span id="cb4-6"><a href=""></a>user1.display_info()   <span class="co"># Output: Username: alice, Email: alice@example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Creating an object from a class is called instantiation. Here’s how we do it:</p>
+<ol type="1">
+<li>We use the class name followed by parentheses, as if we’re calling a function.</li>
+<li>We pass arguments that match the parameters defined in the <code>__init__</code> method (except for <code>self</code>, which is handled automatically by Python).</li>
+<li>This creates a new object and calls the <code>__init__</code> method to set up its initial state.</li>
+<li>The new object is then assigned to a variable (<code>user1</code> and <code>user2</code> in this case).</li>
+</ol>
+<p>After creating the objects, we can access their attributes and methods using dot notation: - <code>object.attribute</code> to access attributes - <code>object.method()</code> to call methods</p>
+<p>In the example: - We create two <code>User</code> objects with different usernames and emails. - We then print out the <code>username</code> of <code>user1</code> and the <code>email</code> of <code>user2</code>. - Finally, we call the <code>display_info()</code> method on <code>user1</code>.</p>
+<p>This demonstrates how each object is a distinct instance with its own set of attribute values, but shares methods defined in the class.</p>
+<p>Instantiation is how we put our class definitions to use, creating concrete objects that we can work with in our programs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="summary" class="title-slide slide level2 center scrollable">
+<h2>Summary</h2>
+<ul>
+<li>Classes are blueprints for creating objects</li>
+<li>The <code>__init__</code> method initializes new objects</li>
+<li>Objects are instances of a class with their own attribute values</li>
+<li>We create objects through instantiation</li>
+<li>We can access object attributes and methods using dot notation</li>
+</ul>
+<aside class="notes">
+<p>Let’s recap what we’ve learned about classes and objects:</p>
+<ol type="1">
+<li><p>Classes serve as blueprints or templates for creating objects. They define the structure and behavior that all objects of that class will have.</p></li>
+<li><p>The <code>__init__</code> method is a special method (constructor) that sets up the initial state of new objects. It’s called automatically when we create an object.</p></li>
+<li><p>Attributes are variables that store data for each object, while methods are functions that can operate on this data.</p></li>
+<li><p>Objects are specific instances of a class. Each object has its own set of attribute values but shares methods with other objects of the same class.</p></li>
+<li><p>We create objects (instantiation) by calling the class name like a function and passing any required arguments for the <code>__init__</code> method.</p></li>
+<li><p>We can access an object’s attributes and methods using dot notation (object.attribute or object.method()).</p></li>
+</ol>
+<p>These concepts form the foundation of Object-Oriented Programming in Python. In our next session, we’ll explore instance attributes and methods in more detail, building on this foundation to create more complex and powerful programs.</p>
+<p>Remember, the goal of OOP is to create code that’s organized, reusable, and models real-world concepts effectively. Classes and objects are the primary tools we use to achieve this goal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="coding-session" class="title-slide slide level2 center">
+<h2>Coding Session</h2>
+<p><a href="../programming-assignments/pa-1/exercise-1/exercise-1.md">Static Methods Coding Session</a></p>
+</section>
+</section>
+<section>
+<section id="instance-attributes-and-methods" class="title-slide slide level1 center">
+<h1>Instance Attributes and Methods</h1>
+
+</section>
+<section id="what-are-instance-attributes" class="title-slide slide level2 center scrollable">
+<h2>What are Instance Attributes?</h2>
+<ul>
+<li>Data specific to each object</li>
+<li>Defined inside the <code>__init__</code> method</li>
+<li>Accessed using <code>self.attribute_name</code></li>
+</ul>
+<aside class="notes">
+<p>Instance attributes are pieces of data that belong to a specific instance (object) of a class. They represent the state or characteristics of that particular object. Here are the key points to remember:</p>
+<ol type="1">
+<li>Each object has its own copy of instance attributes.</li>
+<li>We typically define these attributes in the <code>__init__</code> method, which is called when we create a new object.</li>
+<li>Inside the class, we access these attributes using <code>self.attribute_name</code>.</li>
+<li>Instance attributes allow each object to maintain its own unique state.</li>
+</ol>
+<p>Understanding instance attributes is crucial because they’re what make each object distinct from others of the same class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="creating-instance-attributes" class="title-slide slide level2 center scrollable">
+<h2>Creating Instance Attributes</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb5-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, username, email):</span>
+<span id="cb5-3"><a href=""></a>        <span class="va">self</span>.username <span class="op">=</span> username</span>
+<span id="cb5-4"><a href=""></a>        <span class="va">self</span>.email <span class="op">=</span> email</span>
+<span id="cb5-5"><a href=""></a>        <span class="va">self</span>.posts <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Here’s how we create instance attributes:</p>
+<ol type="1">
+<li>We define them in the <code>__init__</code> method of the class.</li>
+<li>We use <code>self.attribute_name = value</code> to create and assign a value to an attribute.</li>
+<li>We can assign values from parameters (like <code>username</code> and <code>email</code> here) or set default values (like the empty list for <code>posts</code>).</li>
+</ol>
+<p>In this example, we’re creating a <code>User</code> class with three instance attributes: <code>username</code>, <code>email</code>, and <code>posts</code>. Each <code>User</code> object we create will have its own set of these attributes.</p>
+<p>Remember, the <code>__init__</code> method is called automatically when we create a new object, so these attributes are set up right from the start.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="accessing-instance-attributes" class="title-slide slide level2 center scrollable">
+<h2>Accessing Instance Attributes</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>user1 <span class="op">=</span> User(<span class="st">"alice"</span>, <span class="st">"alice@example.com"</span>)</span>
+<span id="cb6-2"><a href=""></a><span class="bu">print</span>(user1.username)  <span class="co"># Output: alice</span></span>
+<span id="cb6-3"><a href=""></a><span class="bu">print</span>(user1.email)     <span class="co"># Output: alice@example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>We can access instance attributes using dot notation. Here’s how it works:</p>
+<ol type="1">
+<li>We write the object name, followed by a dot, followed by the attribute name.</li>
+<li>This gives us the value of that attribute for that specific object.</li>
+</ol>
+<p>In this example, we create a <code>User</code> object named <code>user1</code>, then we access its <code>username</code> and <code>email</code> attributes.</p>
+<p>This demonstrates how each object maintains its own state. If we created another <code>User</code> object, it would have its own separate <code>username</code> and <code>email</code> values.</p>
+<p>Being able to access instance attributes allows us to work with the specific data of each object.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="modifying-instance-attributes" class="title-slide slide level2 center scrollable">
+<h2>Modifying Instance Attributes</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>user1.email <span class="op">=</span> <span class="st">"newalice@example.com"</span></span>
+<span id="cb7-2"><a href=""></a><span class="bu">print</span>(user1.email)  <span class="co"># Output: newalice@example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>We can also modify instance attributes after the object has been created. Here’s how:</p>
+<ol type="1">
+<li>We use the same dot notation as when accessing attributes.</li>
+<li>We can assign a new value to the attribute using the assignment operator (=).</li>
+</ol>
+<p>In this example, we’re changing the <code>email</code> attribute of <code>user1</code>. This change only affects this particular instance of the <code>User</code> class.</p>
+<p>Being able to modify attributes allows our objects to change state over time, which is often necessary in real-world applications. For example, a user might change their email address, and we need to be able to update our <code>User</code> object to reflect this change.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="what-are-instance-methods" class="title-slide slide level2 center scrollable">
+<h2>What are Instance Methods?</h2>
+<ul>
+<li>Functions defined inside a class</li>
+<li>Operate on instance data (attributes)</li>
+<li>The first parameter is <strong>always</strong> <code>self</code></li>
+</ul>
+<aside class="notes">
+<p>Instance methods are functions that we define inside a class. They define the behaviors or actions that objects of the class can perform. Here are the key points about instance methods:</p>
+<ol type="1">
+<li>They are defined inside the class, just like regular functions.</li>
+<li>They can access and modify the instance attributes of the object they’re called on.</li>
+<li>The first parameter is always <code>self</code>, which refers to the instance the method is being called on. The reason is specfic to Python’s object-oriented programming model, we will discuss more later.</li>
+<li>They can also take additional parameters.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="creating-instance-methods" class="title-slide slide level2 center scrollable">
+<h2>Creating Instance Methods</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb8-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, username, email):</span>
+<span id="cb8-3"><a href=""></a>        <span class="va">self</span>.username <span class="op">=</span> username</span>
+<span id="cb8-4"><a href=""></a>        <span class="va">self</span>.email <span class="op">=</span> email</span>
+<span id="cb8-5"><a href=""></a>        <span class="va">self</span>.posts <span class="op">=</span> []</span>
+<span id="cb8-6"><a href=""></a>    </span>
+<span id="cb8-7"><a href=""></a>    <span class="kw">def</span> add_post(<span class="va">self</span>, content):</span>
+<span id="cb8-8"><a href=""></a>        <span class="va">self</span>.posts.append(content)</span>
+<span id="cb8-9"><a href=""></a>        <span class="cf">return</span> <span class="ss">f"Post added: </span><span class="sc">{</span>content<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Here’s how we create an instance method:</p>
+<ol type="1">
+<li>We define it inside the class, similar to how we define a regular function.</li>
+<li>The first parameter is always <code>self</code>.</li>
+<li>We can use <code>self</code> to access the object’s attributes and other methods.</li>
+</ol>
+<p>In this example, we’ve added an <code>add_post</code> method to our <code>User</code> class. This method: 1. Takes a <code>content</code> parameter. 2. Appends the content to the <code>posts</code> list attribute. 3. Returns a confirmation message.</p>
+<p>This method demonstrates how instance methods can modify the object’s state (by adding to the <code>posts</code> list) and work with the object’s data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="calling-instance-methods" class="title-slide slide level2 center scrollable">
+<h2>Calling Instance Methods</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>user1 <span class="op">=</span> User(<span class="st">"bob"</span>, <span class="st">"bob@example.com"</span>)</span>
+<span id="cb9-2"><a href=""></a>result <span class="op">=</span> user1.add_post(<span class="st">"Hello, world!"</span>)</span>
+<span id="cb9-3"><a href=""></a><span class="bu">print</span>(result)  <span class="co"># Output: Post added: Hello, world!</span></span>
+<span id="cb9-4"><a href=""></a><span class="bu">print</span>(user1.posts)  <span class="co"># Output: ['Hello, world!']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>We call instance methods on an object using dot notation. Here’s how it works:</p>
+<ol type="1">
+<li>We write the object name, followed by a dot, followed by the method name and parentheses.</li>
+<li>We pass any required arguments inside the parentheses (not including <code>self</code>, which is handled automatically by Python).</li>
+<li>The method can return a value, which we can assign to a variable or use directly.</li>
+</ol>
+<p>In this example: 1. We create a <code>User</code> object named <code>user1</code>. 2. We call the <code>add_post</code> method on <code>user1</code>, passing “Hello, world!” as the content. 3. We print the result returned by the method. 4. We then print the <code>posts</code> attribute to see that it has been updated.</p>
+<p>This demonstrates how instance methods allow us to perform actions that can change the state of our objects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="instance-methods-vs-functions" class="title-slide slide level2 center scrollable">
+<h2>Instance Methods vs Functions</h2>
+<ul>
+<li>Instance methods can access instance attributes</li>
+<li>They can call other instance methods</li>
+<li>They’re specific to the class and its instances</li>
+</ul>
+<aside class="notes">
+<p>Instance methods differ from regular functions in several important ways:</p>
+<ol type="1">
+<li><p>Access to instance data: Instance methods can access and modify the object’s attributes through <code>self</code>. Regular functions don’t have this built-in access to object data.</p></li>
+<li><p>Calling other methods: Instance methods can easily call other methods of the same class using <code>self</code>.</p></li>
+<li><p>Specificity: Instance methods are bound to the class and can only be called on instances of that class. This makes them more specific and encapsulated than general functions.</p></li>
+<li><p>Implicit first argument: When you call an instance method, the object itself is automatically passed as the first argument (<code>self</code>). With regular functions, you’d have to pass this explicitly.</p></li>
+</ol>
+<p>These differences make instance methods powerful for encapsulating behavior that’s specific to a particular type of object.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="the-self-parameter" class="title-slide slide level2 center scrollable">
+<h2>The <code>self</code> Parameter</h2>
+<ul>
+<li>Represents the instance in method definitions</li>
+<li>Automatically passed when calling method on an object</li>
+<li>Allows access to instance attributes and methods</li>
+</ul>
+<aside class="notes">
+<p>The <code>self</code> parameter is a crucial concept in instance methods:</p>
+<ol type="1">
+<li>In method definitions, <code>self</code> represents the instance that the method will be called on.</li>
+<li>When we call a method on an object, Python automatically passes the object as the <code>self</code> argument.</li>
+<li>This is why we don’t need to explicitly pass <code>self</code> when calling a method.</li>
+<li><code>self</code> allows the method to access the specific instance’s attributes and other methods.</li>
+</ol>
+<p>Understanding <code>self</code> is key to working with instance methods. It’s what allows each object to maintain its own state and perform actions based on its specific data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="using-self-in-methods" class="title-slide slide level2 center scrollable">
+<h2>Using <code>self</code> in Methods</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="kw">class</span> User:</span>
+<span id="cb10-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, username, email):</span>
+<span id="cb10-3"><a href=""></a>        <span class="va">self</span>.username <span class="op">=</span> username</span>
+<span id="cb10-4"><a href=""></a>        <span class="va">self</span>.email <span class="op">=</span> email</span>
+<span id="cb10-5"><a href=""></a>    </span>
+<span id="cb10-6"><a href=""></a>    <span class="kw">def</span> get_info(<span class="va">self</span>):</span>
+<span id="cb10-7"><a href=""></a>        <span class="cf">return</span> <span class="ss">f"Username: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>username<span class="sc">}</span><span class="ss">, Email: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>email<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<p>Here’s an example of how we use <code>self</code> in methods:</p>
+<ol type="1">
+<li>In the <code>__init__</code> method, we use <code>self</code> to set up the initial attributes of the object.</li>
+<li>In the <code>get_info</code> method, we use <code>self</code> to access the <code>username</code> and <code>email</code> attributes of the instance.</li>
+</ol>
+<p>The <code>get_info</code> method demonstrates how <code>self</code> allows a method to work with the specific data of the object it’s called on. When we call this method on a <code>User</code> object, it will return a string with that user’s information.</p>
+<p>This use of <code>self</code> is what allows our methods to be reusable across all instances of the class, while still working with each instance’s unique data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="class-attributes-and-methods" class="title-slide slide level2 center scrollable">
+<h2>Class Attributes and Methods</h2>
+<p>We will talk about class attributes and methods in detail later, for now just know that there are two types of attributes and methods in a class:</p>
+<ul>
+<li><p>Instance attributes/methods:</p>
+<ul>
+<li>Specific to each instance of the class (object)</li>
+<li>Accessed via <code>self</code> or object name</li>
+</ul></li>
+<li><p>Class attributes/methods:</p>
+<ul>
+<li>Shared by all instances of the class</li>
+<li>Accessed via <code>cls</code> or class name</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>While we’ll cover class attributes and methods in more detail later, it’s useful to briefly compare them with instance attributes and methods:</p>
+<ol type="1">
+<li><p>Instance attributes are specific to each object, while class attributes are shared by all instances of the class.</p></li>
+<li><p>Instance methods operate on individual objects and use <code>self</code> to access instance-specific data. Class methods operate on the class itself and use <code>cls</code> as their first parameter.</p></li>
+<li><p>We access instance attributes/methods using the object name (e.g., <code>user.username</code>, <code>user.get_info()</code>), while we typically access class attributes/methods using the class name (e.g., <code>User.some_class_attribute</code>).</p></li>
+<li><p>Instance attributes/methods are used when we need unique data or behavior for each object. Class attributes/methods are used when we want to share data or behavior across all instances of a class.</p></li>
+</ol>
+<p>We’ll explore class attributes and methods in more depth in a future topic. For now, focus on mastering instance attributes and methods, as they form the foundation of working with objects in Python.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="summary-1" class="title-slide slide level2 center scrollable">
+<h2>Summary</h2>
+<ul>
+<li>Instance attributes store object-specific data</li>
+<li>They’re defined in <code>__init__</code> and accessed with <code>self</code></li>
+<li>Instance methods operate on instance attributes</li>
+<li>Methods use <code>self</code> to access instance data</li>
+<li>These concepts allow for encapsulation in OOP</li>
+</ul>
+<aside class="notes">
+<p>Let’s recap what we’ve learned about instance attributes and methods:</p>
+<ol type="1">
+<li><p>Instance attributes allow each object to have its own state. They’re typically defined in the <code>__init__</code> method and accessed using <code>self</code>.</p></li>
+<li><p>We can access and modify instance attributes using dot notation, both inside and outside the class.</p></li>
+<li><p>Instance methods are functions defined in a class that can operate on instance attributes. They always have <code>self</code> as their first parameter.</p></li>
+<li><p>We call instance methods using dot notation on an object. Python automatically handles passing the object as <code>self</code>.</p></li>
+<li><p>The <code>self</code> parameter in methods refers to the instance the method is called on, allowing methods to work with instance-specific data.</p></li>
+<li><p>These concepts are fundamental to encapsulation in object-oriented programming, allowing us to bundle data and the methods that operate on that data together in objects.</p></li>
+<li><p>Instance attributes and methods differ from class attributes and methods in their scope and how they’re accessed. We’ll explore class-level concepts in more detail in a future topic.</p></li>
+</ol>
+<p>In our next sessions, we’ll build on these concepts to create more complex and powerful class structures. Understanding instance attributes and methods is crucial for effective object-oriented programming in Python.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="coding-session-1" class="title-slide slide level2 center">
+<h2>Coding Session</h2>
+<p><a href="../programming-assignments/pa-1/exercise-2/exercise-2.md">Static Methods Coding Session</a></p>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture-7-17SEP2024_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
