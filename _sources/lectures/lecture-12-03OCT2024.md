@@ -1,4 +1,4 @@
-# Lecture 11, October 1, 2024
+# Lecture 12, October 3, 2024
 
 Today we will focus on logging in Python. We'll begin by discussing the purpose and benefits of logging, then explore the different logging components -- loggers, handlers, filters, and formatters.
 
