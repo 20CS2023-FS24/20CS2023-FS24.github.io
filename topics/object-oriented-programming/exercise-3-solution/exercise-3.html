@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise 3 &#8212; Python Programming (CS2023)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/quarto-styles.css?v=1310afba" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=3afe5843" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topics/object-oriented-programming/exercise-3-solution/exercise-3';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../syllabus/cs2023.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/uc_logo.svg" class="logo__image only-light" alt="Python Programming (CS2023) - Home"/>
+    <script>document.write(`<img src="../../../_static/uc_logo.svg" class="logo__image only-dark" alt="Python Programming (CS2023) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../syllabus/cs2023.html">
+                    Python Programming (CS 2023)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../syllabus/24fs/24fs.html">Fall Semester 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../syllabus/instructor-information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../syllabus/assessment-plan-and-policies.html">Assessment Plan and Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../syllabus/grading-policy.html">Grading Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../syllabus/university-policies.html">University Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../lectures.html">Lecture Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-1-27AUG2024.html">Lecture 1, Aug 27, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../day1/class-profile.html">Class Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../day1/claude-3.5-sonnet-demonstration.html">Claude 3.5 Sonnet Demonstration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-2-29AUG2024.html">Lecture 2, Aug 29, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../python-shell/python-shell.html">Python Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ipython-shell/ipython-shell.html">IPython Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../jupyter-notebooks/jupyter-notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../python-scripts/python-scripts.html">Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../python-interpreter/interpreter-basics.html">Basics of the Python Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../python-style-guide/python-style-guide.html">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../variables-and-data-types.html">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numerics/numeric-types.html">Numeric Types</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../booleans/boolean-type.html">Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../strings/string-type.html">String Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-3-03SEP2024.html">Lecture 3, Sep 3, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lists/lists.html">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lists/lists-shallow-and-deep-copy.html">Lists: Shallow and Deep Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lists/lists-hands-on.html">Lists: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tuples/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tuples/tuples-hands-on.html">Tuples: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../packing-and-unpacking/packing-and-unpacking.html">Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../packing-and-unpacking/argument-packing-hands-on.html">Argument Packing: Hands-On Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-4-05SEP2024.html">Lecture 4, Sep 5, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dictionaries/dictionary-performance-additional-explanation.html">Dictionary Performance: Additional Explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dictionaries/dictionaries-hands-on.html">Dictionaries: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dictionaries/hash-tables-conceptual-overview.html">Hash Tables: Conceptual Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sets/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sets/sets-hands-on.html">Sets: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data-structures-use-cases.html">Data Structures: Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../type-checking.html">Type Checking</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-5-10SEP2024.html">Lecture 5, Sep 10, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/functions.html">Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../lectures/lecture-6-12SEP2024.html">Lecture 6, Sep 12, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../controlling-program-flow/logical-comparisons.html">Logical Comparisons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../controlling-program-flow/conditional-statements.html">Conditional Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../controlling-program-flow/loops.html">Loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-7-17SEP2024.html">Lecture 7, Sep 17, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-8-19SEP2024.html">Lecture 8, Sep 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-9-24SEP2024.html">Lecture 9, Sep 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-10-26SEP2024.html">Lecture 10, Sep 26, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-11-01OCT2024.html">Lecture 11, October 1, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-12-03OCT2024.html">Lecture 12, October 3, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-13-08OCT2024.html">Lecture 13, October 8, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-14-15OCT2024.html">Lecture 14, October 15, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lectures/lecture-15-17OCT2024.html">Lecture 15, October 17, 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../exercises.html">Practice Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../exercises/01_strings.html">String Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../exercises/02_numbers.html">Number Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../exercises/03_lists.html">List Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../exercises/04_tuples.html">Tuple Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../exercises/05_sets.html">Sets and Frozen Sets Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../knowledge-checks.html">Knowledge Checks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../knowledge-checks/knowledge-check-1.html">Knowledge Check 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../knowledge-checks/knowledge-check-2.html">Knowledge Check 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../knowledge-checks/knowledge-check-3.html">Knowledge Check 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../knowledge-checks/knowledge-check-4.html">Knowledge Check 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../programming-assignments.html">Programming Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../programming-assignments/assignment-1/assignment-1.html">Assignment 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-1/user-class.html"><code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-1/post-class.html"><code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-1/comment-class.html"><code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-1/reference-material.html">Reference Material</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../programming-assignments/assignment-2/assignment-2.html">Assignment 2: QuizMe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/truefalse-class.html"><code class="docutils literal notranslate"><span class="pre">TrueFalse</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/shortanswer-class.html"><code class="docutils literal notranslate"><span class="pre">ShortAnswer</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/box-class.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/boxmanager-class.html"><code class="docutils literal notranslate"><span class="pre">BoxManager</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/arcontroller-class.html"><code class="docutils literal notranslate"><span class="pre">ARController</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming-assignments/assignment-2/quizme.html"><code class="docutils literal notranslate"><span class="pre">quizme</span></code> CLI</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../faqs.html">FAQs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../faqs/github_student_benefits.html">GitHub Student Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../faqs/oreilly_access.html">How do I access O’Reilly books?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../external-links.html">External Links</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/topics/object-oriented-programming/exercise-3-solution/exercise-3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercise 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-refactor-the-user-class">Step 1: Refactor the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-refactor-the-post-class">Step 2: Refactor the <code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-refactor-the-comment-class">Step 3: Refactor the <code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-a-privatemessage-class">Step 4: Create a <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-update-the-user-class-for-private-messages">Step 5: Update the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class for Private Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-testing">Interactive Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-unit-tests">Running Unit Tests</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-3">
+<h1>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h1>
+<section id="encapsulation">
+<h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Link to this heading">#</a></h2>
+<p>In this exercise, you will refactor the existing classes to implement encapsulation and data hiding principles. You’ll also create a new <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> class to practice these concepts further.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If there is any ambiguity in the requirements, make a reasonable assumption and proceed.  Then look at the provided unit tests to understand the expected behavior, and adjust your implementation accordingly.</p>
+</div>
+</section>
+<section id="step-1-refactor-the-user-class">
+<h2>Step 1: Refactor the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class<a class="headerlink" href="#step-1-refactor-the-user-class" title="Link to this heading">#</a></h2>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">user.py</span></code> file:</p>
+<ol class="arabic simple">
+<li><p>Change all instance attributes to use a single underscore prefix (e.g., <code class="docutils literal notranslate"><span class="pre">self._username</span></code>).</p></li>
+<li><p>Implement properties for <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> with appropriate getters and setters.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">_validate_email</span></code> private method to check email format and use it within the email setter.</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">update_bio</span></code> method to use a property for <code class="docutils literal notranslate"><span class="pre">bio</span></code> with a setter that enforces the character limit.</p></li>
+</ol>
+</section>
+<section id="step-2-refactor-the-post-class">
+<h2>Step 2: Refactor the <code class="docutils literal notranslate"><span class="pre">Post</span></code> Class<a class="headerlink" href="#step-2-refactor-the-post-class" title="Link to this heading">#</a></h2>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">post.py</span></code> file:</p>
+<ol class="arabic simple">
+<li><p>Change all instance attributes to use a single underscore prefix (e.g., <code class="docutils literal notranslate"><span class="pre">self._content</span></code>).</p></li>
+<li><p>Implement a property for <code class="docutils literal notranslate"><span class="pre">likes_count</span></code> with a getter only.</p></li>
+<li><p>Make the <code class="docutils literal notranslate"><span class="pre">like_post</span></code> and <code class="docutils literal notranslate"><span class="pre">unlike_post</span></code> methods protected by adding a single underscore prefix.</p></li>
+<li><p>Create a public <code class="docutils literal notranslate"><span class="pre">toggle_like</span></code> method that calls the protected methods as appropriate.</p></li>
+</ol>
+</section>
+<section id="step-3-refactor-the-comment-class">
+<h2>Step 3: Refactor the <code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class<a class="headerlink" href="#step-3-refactor-the-comment-class" title="Link to this heading">#</a></h2>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">comment.py</span></code> file:</p>
+<ol class="arabic simple">
+<li><p>Change all instance attributes to use a single underscore prefix (e.g., <code class="docutils literal notranslate"><span class="pre">self._content</span></code>).</p></li>
+<li><p>Implement a read-only property for <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>.</p></li>
+<li><p>Create a protected <code class="docutils literal notranslate"><span class="pre">_increment_likes</span></code> method and a public <code class="docutils literal notranslate"><span class="pre">like</span></code> method that calls it.</p></li>
+</ol>
+</section>
+<section id="step-4-create-a-privatemessage-class">
+<h2>Step 4: Create a <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> Class<a class="headerlink" href="#step-4-create-a-privatemessage-class" title="Link to this heading">#</a></h2>
+<p>Create a new file <code class="docutils literal notranslate"><span class="pre">private_message.py</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Implement a <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> class with the following features:</p>
+<ul class="simple">
+<li><p>Private attributes for sender, recipient, content, and timestamp.</p></li>
+<li><p>A class attribute for keeping track of the total number of messages sent.</p></li>
+<li><p>A static method to get the total message count.</p></li>
+<li><p>Properties for accessing the private attributes (read-only for sender and recipient).</p></li>
+<li><p>A method to display the message contents only if the provided user is either the sender or the recipient.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="step-5-update-the-user-class-for-private-messages">
+<h2>Step 5: Update the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class for Private Messages<a class="headerlink" href="#step-5-update-the-user-class-for-private-messages" title="Link to this heading">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">user.py</span></code> file:</p>
+<ol class="arabic simple">
+<li><p>Add a private attribute <code class="docutils literal notranslate"><span class="pre">_received_messages</span></code> initialized as an empty list.</p></li>
+<li><p>Implement a method <code class="docutils literal notranslate"><span class="pre">send_private_message</span></code> that creates a new <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> and adds it to the recipient’s <code class="docutils literal notranslate"><span class="pre">_received_messages</span></code>.</p></li>
+<li><p>Create a method <code class="docutils literal notranslate"><span class="pre">view_private_messages</span></code> that returns a list of the user’s received messages.</p></li>
+</ol>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+<section id="interactive-testing">
+<h3>Interactive Testing<a class="headerlink" href="#interactive-testing" title="Link to this heading">#</a></h3>
+<p>To test your refactored code interactively using a Python shell:</p>
+<ol class="arabic">
+<li><p>Open a terminal and navigate to your project directory.</p></li>
+<li><p>Start the Python interactive shell by typing <code class="docutils literal notranslate"><span class="pre">python</span></code> or <code class="docutils literal notranslate"><span class="pre">python3</span></code>.</p></li>
+<li><p>Import your classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">user</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">post</span> <span class="kn">import</span> <span class="n">Post</span>
+<span class="kn">from</span> <span class="nn">comment</span> <span class="kn">import</span> <span class="n">Comment</span>
+<span class="kn">from</span> <span class="nn">private_message</span> <span class="kn">import</span> <span class="n">PrivateMessage</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create users and test the refactored methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;johndoe&quot;</span><span class="p">,</span> <span class="s2">&quot;john@example.com&quot;</span><span class="p">)</span>
+<span class="n">user2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;janedoe&quot;</span><span class="p">,</span> <span class="s2">&quot;jane@example.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># Test properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user1</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+<span class="n">user1</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;newemail@example.com&quot;</span>
+
+<span class="c1"># Test protected methods</span>
+<span class="n">post</span> <span class="o">=</span> <span class="n">user1</span><span class="o">.</span><span class="n">create_post</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="n">post</span><span class="o">.</span><span class="n">toggle_like</span><span class="p">(</span><span class="n">user2</span><span class="p">)</span>
+
+<span class="c1"># Test private messages</span>
+<span class="n">user1</span><span class="o">.</span><span class="n">send_private_message</span><span class="p">(</span><span class="n">user2</span><span class="p">,</span> <span class="s2">&quot;Hi Jane!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user2</span><span class="o">.</span><span class="n">view_private_messages</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the output matches your expectations and that you cannot directly access private attributes.</p></li>
+</ol>
+</section>
+<section id="running-unit-tests">
+<h3>Running Unit Tests<a class="headerlink" href="#running-unit-tests" title="Link to this heading">#</a></h3>
+<p>Download the provided unit tests for the <code class="docutils literal notranslate"><span class="pre">User</span></code> and <code class="docutils literal notranslate"><span class="pre">Post</span></code> classes:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../../../_downloads/1da802cb47375da0f7033f5f49648781/test_user.py"><span class="xref download myst">test_user.py</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/b8f6f03cbed586e867e61cdf77bff1a5/test_post.py"><span class="xref download myst">test_post.py</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/9cb1809186656899f2fd37d315243b92/test_comment.py"><span class="xref download myst">test_comment.py</span></a></p></li>
+<li><p><a class="reference download internal" download="" href="../../../_downloads/5d5e3d5f354da3456093f33f1a4a4625/test_private_message.py"><span class="xref download myst">test_private_message.py</span></a></p></li>
+</ul>
+<p>To run the provided unit tests:</p>
+<ol class="arabic">
+<li><p>Ensure you have a test files for each class: <code class="docutils literal notranslate"><span class="pre">test_user.py</span></code>, <code class="docutils literal notranslate"><span class="pre">test_post.py</span></code>, <code class="docutils literal notranslate"><span class="pre">test_comment.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">test_private_message.py</span></code>.</p></li>
+<li><p>Open a terminal and navigate to your project directory.</p></li>
+<li><p>Run the tests for each class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">test_user</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">test_post</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">test_comment</span><span class="o">.</span><span class="n">py</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">test_private_message</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p>To run all tests at once, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">discover</span>
+</pre></div>
+</div>
+</li>
+<li><p>Review the test output. All tests should pass if your implementation is correct.</p></li>
+<li><p>If any tests fail, review the error messages, go back to your implementation, and make the necessary corrections.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topics/object-oriented-programming/exercise-3-solution"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-refactor-the-user-class">Step 1: Refactor the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-refactor-the-post-class">Step 2: Refactor the <code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-refactor-the-comment-class">Step 3: Refactor the <code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-a-privatemessage-class">Step 4: Create a <code class="docutils literal notranslate"><span class="pre">PrivateMessage</span></code> Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-update-the-user-class-for-private-messages">Step 5: Update the <code class="docutils literal notranslate"><span class="pre">User</span></code> Class for Private Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-testing">Interactive Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-unit-tests">Running Unit Tests</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
