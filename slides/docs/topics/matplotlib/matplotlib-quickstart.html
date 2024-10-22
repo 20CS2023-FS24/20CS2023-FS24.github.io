@@ -406,7 +406,7 @@
 <section id="plotting" class="title-slide slide level2 hide center">
 <h2>Plotting</h2>
 <p><code>pyplot</code> is a module within the Matplotlib library used to create plots, it includes functions to set up the figure, add plots, labels, titles, and more. It’s often imported as <code>plt</code> as shown below:</p>
-<div id="7c7fda8c" class="cell" data-execution_count="1">
+<div id="9f316193" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
@@ -435,7 +435,7 @@
 <div class="r-stack">
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
 <p>You can create a Figure with an Axes using <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots">pyplot.subplots</a>.</p>
-<div id="a4273b43" class="cell" data-execution_count="2">
+<div id="055b5641" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href=""></a></span>
 <span id="cb2-3"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -450,7 +450,7 @@
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
 <p>Then use <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot">Axes.plot</a> to draw data on the Axes:</p>
-<div id="09b7fa04" class="cell" data-execution_count="3">
+<div id="b89fd15d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
@@ -466,7 +466,7 @@
 </div>
 <div class="fragment fade-in-then-out absolute" style="width: 100%; ">
 <p>Depending on your environment, you made need to use <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show">show</a> to display the :</p>
-<div id="55975bc7" class="cell" data-execution_count="4">
+<div id="391451f3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
@@ -488,7 +488,7 @@
 <section id="a-numpy-example" class="title-slide slide level2 hide center">
 <h2>A Numpy Example</h2>
 <div class="smaller-80">
-<div id="4c7a46f8" class="cell" data-execution_count="5">
+<div id="f33f8c5a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-3"><a href=""></a></span>
@@ -570,7 +570,7 @@
 <section id="types-of-inputs-to-plotting-functions" class="title-slide slide level2 hide smaller-65 center">
 <h2>Types of inputs to plotting functions</h2>
 <p>Plotting functions generally expect inputs as <code>numpy.array</code>, it is common practice to explicitly convert to <code>numpy.array</code> before plotting. This example demonstrates using <code>np.asarray</code> to convert a <code>numpy.matrix</code> to a <code>numpy.array</code> before plotting:</p>
-<div id="ab2e9403" class="cell" data-execution_count="6">
+<div id="a41fc965" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-3"><a href=""></a>b <span class="op">=</span> np.matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
@@ -591,7 +591,7 @@
 <section id="string-indexable-objects" class="title-slide slide level3 hide smaller-65 center">
 <h3>String-Indexable Objects</h3>
 <p>You can specify a dataset using the <code>data</code> keyword argument, allowing you to work with string-indexable objects (dictionaries, structured NumPy arrays, or Pandas DataFrames). By passing the names of the <code>x</code> and <code>y</code> variables as strings, Matplotlib will automatically extract the corresponding data from the specified dataset.</p>
-<div id="8cd14d63" class="cell" data-execution_count="7">
+<div id="435b64db" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href=""></a></span>
@@ -644,7 +644,7 @@
 <section id="pyplot-style-implicit" class="title-slide slide level3 hide smaller-65 center">
 <h3>Pyplot Style (Implicit)</h3>
 <p>The pyplot style is more convenient for simple plots and is often used in scripts and notebooks.</p>
-<div id="32c28bdf" class="cell" data-execution_count="8">
+<div id="e6b191cc" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-3"><a href=""></a></span>
@@ -671,7 +671,7 @@
 <section id="object-oriented-style" class="title-slide slide level3 hide smaller-65 center">
 <h3>Object-Oriented Style</h3>
 <p>The OO style is more customizable and is generally the preferred approach, especially for more complex plots.</p>
-<div id="c7b8f136" class="cell" data-execution_count="9">
+<div id="05849877" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb11-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-3"><a href=""></a></span>
@@ -700,7 +700,7 @@
 <section id="styling-artists" class="title-slide slide level2 hide smaller-65 center">
 <h2>Styling Artists</h2>
 <p>Most plotting methods have styling options for the Artists, accessible either when a plotting method is called, or from a “setter” on the Artist. In the plot below we manually set the color, linewidth, and linestyle of the Artists created by <code>plot</code>, and we set the linestyle of the second line after the fact with <code>set_linestyle</code>.</p>
-<div id="d76cc13f" class="cell" data-execution_count="10">
+<div id="1f9f7aa7" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb12-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-3"><a href=""></a></span>
@@ -722,7 +722,7 @@
 <section id="colors" class="title-slide slide level3 hide smaller-65 center">
 <h3>Colors</h3>
 <p>Matplotlib offers a flexible range of color options (see <a href="https://matplotlib.org/stable/users/explain/colors/colors.html#colors-def">allowable color definitions</a>). Some plots allow the use of multiple colors; for example, in a scatter plot, the marker edges can be a different color from the marker interiors.</p>
-<div id="b9698125" class="cell" data-execution_count="11">
+<div id="17548dd9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb13-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-3"><a href=""></a></span>
