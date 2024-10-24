@@ -440,7 +440,7 @@
 <section id="why-use-numpy" class="title-slide slide level2 hide smaller-75 center">
 <h2>Why Use NumPy?</h2>
 <p>NumPy arrays are faster and more memory-efficient than Python lists because they are implemented in C, stored in contiguous memory, and are homogeneous. This allows for vectorized operations, meaning that operations are performed on the entire array at once, rather than on each element individually.</p>
-<div id="3ffdc2fe" class="cell" data-execution_count="1">
+<div id="2aab33ab" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a><span class="co"># Create a list of numbers</span></span>
@@ -453,8 +453,8 @@
 <span id="cb1-10"><a href=""></a><span class="op">%</span>timeit [number <span class="op">*</span> <span class="dv">2</span> <span class="cf">for</span> number <span class="kw">in</span> numbers]</span>
 <span id="cb1-11"><a href=""></a><span class="op">%</span>timeit np_numbers <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>23.3 ms ± 2.72 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
-313 μs ± 3.09 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+<pre><code>24.2 ms ± 3.7 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+313 μs ± 4.95 μs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
 </div>
 </div>
 <aside class="notes">

@@ -490,22 +490,37 @@
 </div>
 <img data-src="matplotlib_files/figure-revealjs/cell-2-output-1.png" class="r-stretch"></section>
 
-<section id="example-object-oriented-interface" class="title-slide slide level2 hide smaller-70 center">
-<h2>Example: Object-oriented Interface</h2>
-<p>The object-oriented interface is more powerful and flexible than the MATLAB-style interface. It involves creating figure and axis objects explicitly and calling methods on them.</p>
-<div id="cell-11" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<section id="saving-plots" class="title-slide slide level2 hide smaller-75 center">
+<h2>Saving Plots</h2>
+<p>You can save plots to various file formats using the <code>savefig()</code> function. The file format is determined by the file extension.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href=""></a></span>
 <span id="cb6-4"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
 <span id="cb6-5"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
 <span id="cb6-6"><a href=""></a></span>
-<span id="cb6-7"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb6-8"><a href=""></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb6-9"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href=""></a>plt.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a>plt.savefig(<span class="st">'plot.png'</span>)  <span class="co"># Save as PNG</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="matplotlib_files/figure-revealjs/cell-3-output-1.png" class="r-stretch"></section>
+
+<section id="example-object-oriented-interface" class="title-slide slide level2 hide smaller-70 center">
+<h2>Example: Object-oriented Interface</h2>
+<p>The object-oriented interface is more powerful and flexible than the MATLAB-style interface. It involves creating figure and axis objects explicitly and calling methods on them.</p>
+<div id="cell-13" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb7-5"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb7-8"><a href=""></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-9"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="matplotlib_files/figure-revealjs/cell-3-output-1.png" class="r-stretch"></section>
+<img data-src="matplotlib_files/figure-revealjs/cell-4-output-1.png" class="r-stretch"></section>
 
 <section id="object-oriented-interface-explained" class="title-slide slide level2 hide smaller-70 center">
 <h2>Object-oriented Interface Explained</h2>
@@ -518,12 +533,12 @@
 </ul>
 <p>Notice the <code>plot()</code> function is a method of <code>ax</code>.</p>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
-<span id="cb7-2"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
-<span id="cb7-3"><a href=""></a></span>
-<span id="cb7-4"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb7-5"><a href=""></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb7-6"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb8-2"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb8-5"><a href=""></a>ax.plot(x, y, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-6"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 
@@ -532,84 +547,84 @@
 <h2>Customization: Legend</h2>
 <div class="smaller-70">
 <p>The <code>legend()</code> method adds a legend to the plot. It takes an optional <code>loc</code> argument to specify the location of the legend. The <code>loc</code> argument can be a string (e.g., ‘upper left’), a tuple of coordinates (e.g., (0.5, 0.5)), or a number (e.g., 2).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
-<span id="cb8-5"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
-<span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb8-8"><a href=""></a>ax.plot(x, y, <span class="st">'r-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'sine function'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb8-9"><a href=""></a>ax.legend(loc<span class="op">=</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>))</span>
-<span id="cb8-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb9-5"><a href=""></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb9-6"><a href=""></a></span>
+<span id="cb9-7"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb9-8"><a href=""></a>ax.plot(x, y, <span class="st">'r-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'sine function'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb9-9"><a href=""></a>ax.legend(loc<span class="op">=</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>))</span>
+<span id="cb9-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section class="slide level4">
-
-
-<img data-src="matplotlib_files/figure-revealjs/cell-4-output-1.png" class="r-stretch"></section></section>
-<section>
-<section id="customization-ticks-tick-labels-and-titles" class="title-slide slide level2 hide center">
-<h2>Customization: Ticks, Tick Labels, and Titles</h2>
-<p>You can customize the ticks, tick labels and titles of the plot using the <code>set_xticks()</code>, <code>set_xticklabels()</code>, <code>set_xlabel()</code>, and <code>set_title()</code> methods.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb9-2"><a href=""></a>ax.plot(x, y, <span class="st">'r-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'sine function'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb9-3"><a href=""></a>ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>)</span>
-<span id="cb9-4"><a href=""></a>ax.set_yticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb9-5"><a href=""></a>ax.set_yticklabels([<span class="st">'min'</span>, <span class="st">'mid'</span>, <span class="st">'max'</span>])</span>
-<span id="cb9-6"><a href=""></a>ax.set_title(<span class="st">'Test plot'</span>)</span>
-<span id="cb9-7"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level4">
 
 
 <img data-src="matplotlib_files/figure-revealjs/cell-5-output-1.png" class="r-stretch"></section></section>
 <section>
-<section id="multiple-plots-on-one-axes" class="title-slide slide level2 hide center">
-<h2>Multiple Plots on One Axes</h2>
-<p>This example demonstrates how to create multiple plots on one axes, by calling the <code>plot()</code> method multiple times on the same <code>ax</code> object.</p>
-<p>It also shows the use of LaTeX in the plot labels.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-3"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb10-4"><a href=""></a><span class="im">from</span> random <span class="im">import</span> uniform</span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb10-7"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">150</span>)</span>
-<span id="cb10-8"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb10-9"><a href=""></a>    m, s <span class="op">=</span> uniform(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), uniform(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb10-10"><a href=""></a>    y <span class="op">=</span> norm.pdf(x, loc<span class="op">=</span>m, scale<span class="op">=</span>s)</span>
-<span id="cb10-11"><a href=""></a>    current_label <span class="op">=</span> <span class="ss">f'$</span><span class="ch">\\</span><span class="ss">mu = </span><span class="sc">{</span>m<span class="sc">:.2}</span><span class="ss">$'</span></span>
-<span id="cb10-12"><a href=""></a>    ax.plot(x, y, linewidth<span class="op">=</span><span class="dv">2</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span>current_label)</span>
-<span id="cb10-13"><a href=""></a>ax.legend()</span>
-<span id="cb10-14"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="customization-ticks-tick-labels-and-titles" class="title-slide slide level2 hide center">
+<h2>Customization: Ticks, Tick Labels, and Titles</h2>
+<p>You can customize the ticks, tick labels and titles of the plot using the <code>set_xticks()</code>, <code>set_xticklabels()</code>, <code>set_xlabel()</code>, and <code>set_title()</code> methods.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-2"><a href=""></a>ax.plot(x, y, <span class="st">'r-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'sine function'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb10-3"><a href=""></a>ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>)</span>
+<span id="cb10-4"><a href=""></a>ax.set_yticks([<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb10-5"><a href=""></a>ax.set_yticklabels([<span class="st">'min'</span>, <span class="st">'mid'</span>, <span class="st">'max'</span>])</span>
+<span id="cb10-6"><a href=""></a>ax.set_title(<span class="st">'Test plot'</span>)</span>
+<span id="cb10-7"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level4">
 
 
 <img data-src="matplotlib_files/figure-revealjs/cell-6-output-1.png" class="r-stretch"></section></section>
 <section>
-<section id="multiple-subplots-in-one-figure" class="title-slide slide level2 hide center">
-<h2>Multiple Subplots in One Figure</h2>
-<p>This example demonstrates how to create multiple subplots in one figure using the <code>subplots()</code> function and specifying the number of rows and columns. The <code>figsize</code> argument sets the size of the figure (width, height).</p>
+<section id="multiple-plots-on-one-axes" class="title-slide slide level2 hide center">
+<h2>Multiple Plots on One Axes</h2>
+<p>This example demonstrates how to create multiple plots on one axes, by calling the <code>plot()</code> method multiple times on the same <code>ax</code> object.</p>
+<p>It also shows the use of LaTeX in the plot labels.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-2"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb11-3"><a href=""></a><span class="im">from</span> random <span class="im">import</span> uniform</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a>num_rows, num_cols <span class="op">=</span> <span class="dv">3</span>, <span class="dv">2</span></span>
-<span id="cb11-6"><a href=""></a>fig, axes <span class="op">=</span> plt.subplots(num_rows, num_cols, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">12</span>))</span>
-<span id="cb11-7"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_rows):</span>
-<span id="cb11-8"><a href=""></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(num_cols):</span>
-<span id="cb11-9"><a href=""></a>        m, s <span class="op">=</span> uniform(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), uniform(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb11-10"><a href=""></a>        x <span class="op">=</span> norm.rvs(loc<span class="op">=</span>m, scale<span class="op">=</span>s, size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb11-11"><a href=""></a>        axes[i, j].hist(x, alpha<span class="op">=</span><span class="fl">0.6</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb11-12"><a href=""></a>        t <span class="op">=</span> <span class="ss">f'$</span><span class="ch">\\</span><span class="ss">mu = </span><span class="sc">{</span>m<span class="sc">:.2}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">quad </span><span class="ch">\\</span><span class="ss">sigma = </span><span class="sc">{</span>s<span class="sc">:.2}</span><span class="ss">$'</span></span>
-<span id="cb11-13"><a href=""></a>        axes[i, j].<span class="bu">set</span>(title<span class="op">=</span>t, xticks<span class="op">=</span>[<span class="op">-</span><span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">4</span>], yticks<span class="op">=</span>[])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-3"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb11-4"><a href=""></a><span class="im">from</span> random <span class="im">import</span> uniform</span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb11-7"><a href=""></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">150</span>)</span>
+<span id="cb11-8"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb11-9"><a href=""></a>    m, s <span class="op">=</span> uniform(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), uniform(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb11-10"><a href=""></a>    y <span class="op">=</span> norm.pdf(x, loc<span class="op">=</span>m, scale<span class="op">=</span>s)</span>
+<span id="cb11-11"><a href=""></a>    current_label <span class="op">=</span> <span class="ss">f'$</span><span class="ch">\\</span><span class="ss">mu = </span><span class="sc">{</span>m<span class="sc">:.2}</span><span class="ss">$'</span></span>
+<span id="cb11-12"><a href=""></a>    ax.plot(x, y, linewidth<span class="op">=</span><span class="dv">2</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span>current_label)</span>
+<span id="cb11-13"><a href=""></a>ax.legend()</span>
+<span id="cb11-14"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level4">
 
 
-<img data-src="matplotlib_files/figure-revealjs/cell-7-output-1.png" class="r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="matplotlib_files/figure-revealjs/cell-7-output-1.png" class="r-stretch"></section></section>
+<section>
+<section id="multiple-subplots-in-one-figure" class="title-slide slide level2 hide center">
+<h2>Multiple Subplots in One Figure</h2>
+<p>This example demonstrates how to create multiple subplots in one figure using the <code>subplots()</code> function and specifying the number of rows and columns. The <code>figsize</code> argument sets the size of the figure (width, height).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-2"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb12-3"><a href=""></a><span class="im">from</span> random <span class="im">import</span> uniform</span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a>num_rows, num_cols <span class="op">=</span> <span class="dv">3</span>, <span class="dv">2</span></span>
+<span id="cb12-6"><a href=""></a>fig, axes <span class="op">=</span> plt.subplots(num_rows, num_cols, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">12</span>))</span>
+<span id="cb12-7"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_rows):</span>
+<span id="cb12-8"><a href=""></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(num_cols):</span>
+<span id="cb12-9"><a href=""></a>        m, s <span class="op">=</span> uniform(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>), uniform(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb12-10"><a href=""></a>        x <span class="op">=</span> norm.rvs(loc<span class="op">=</span>m, scale<span class="op">=</span>s, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb12-11"><a href=""></a>        axes[i, j].hist(x, alpha<span class="op">=</span><span class="fl">0.6</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb12-12"><a href=""></a>        t <span class="op">=</span> <span class="ss">f'$</span><span class="ch">\\</span><span class="ss">mu = </span><span class="sc">{</span>m<span class="sc">:.2}</span><span class="ss">, </span><span class="ch">\\</span><span class="ss">quad </span><span class="ch">\\</span><span class="ss">sigma = </span><span class="sc">{</span>s<span class="sc">:.2}</span><span class="ss">$'</span></span>
+<span id="cb12-13"><a href=""></a>        axes[i, j].<span class="bu">set</span>(title<span class="op">=</span>t, xticks<span class="op">=</span>[<span class="op">-</span><span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">4</span>], yticks<span class="op">=</span>[])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level4">
+
+
+<img data-src="matplotlib_files/figure-revealjs/cell-8-output-1.png" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
