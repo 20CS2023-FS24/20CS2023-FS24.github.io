@@ -34,15 +34,21 @@ Questions move between boxes based on the user's answers, ensuring focused atten
 The project is structured into the following directories and files. The GitHub repository includes the initial setup and template files for each component, along with comprehensive test files that will be used to evaluate your implementation.
 
 ```
-quizme/
-├── ars/                          # Adaptive Review System library
-│   ├── arcontroller.py
-│   ├── box.py
-│   ├── boxmanager.py
-│   └── qtype/
-│       ├── question.py
-│       ├── truefalse.py
-│       └── shortanswer.py
+programming-assignment-2/
+├── data/                        
+│   └── python_fundamental_questions.py
+|
+├── quizme/
+│   ├── ars/                         
+│   │   ├── arcontroller.py
+│   │   ├── box.py
+│   │   ├── boxmanager.py
+│   │   └── qtype/
+│   │       ├── question.py
+│   │       ├── truefalse.py
+│   │       └── shortanswer.py
+│   └── quizme.py
+|
 ├── tests/                          
 │   ├── tests_arcontroller.py
 │   ├── tests_box.py
@@ -51,8 +57,8 @@ quizme/
 │   ├── tests_shortanswer.py
 │   ├── tests_box.py
 │   └── tests_quizme.py
-├── run_tests.py                  # Script to run all tests
-└── quizme.py                     # Main CLI application
+|
+└── run_tests.py
 ```
 
 ## Assignment Tasks
