@@ -141,7 +141,8 @@ Your task is recreate the plot shown above exactly in the file `exercise5.py`.
 
 
 ```{warning}
-- 50% of the points for exercise 5 will be based on the following good coding practices:
+50% of the points for exercise 5 will be based on the following good coding practices:
+
 - Modularity (e.g., use of functions - for example: main, load data, generate plot, etc.) 
 - Use of docstrings and comments (that follows the Google style guide)
 - Proper error handling (e.g., what happens if the CSV file is missing?, what happens if the image file already exists?)
