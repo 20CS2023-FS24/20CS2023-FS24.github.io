@@ -11,7 +11,7 @@ Complete the [Kaggle: Learn Pandas](https://www.kaggle.com/learn/pandas) course 
 
 You can use it to:
 
-1. Replace your lowest Knowledge Check grade (beyond the 3 lowest that are already dropped) with a 100% grade. This option is available for Knowledge Checks 1-7 only. This is a one-time opportunity and cannot be used for Knowledge Checks due after November 7, 2024.  
+1. Replace your lowest Knowledge Check grade (beyond the 3 lowest that are already dropped) with a 100% grade. This option is available for Knowledge Checks 1-7 only. This is a one-time opportunity and cannot be used for Knowledge Checks due after November 7, 2024. 
 
 -or-
 
