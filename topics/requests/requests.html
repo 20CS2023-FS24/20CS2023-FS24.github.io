@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python’s Requests Library &#8212; Python Programming (CS2023)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/quarto-styles.css?v=2acfc168" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3afe5843" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topics/requests/requests';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../syllabus/cs2023.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/uc_logo.svg" class="logo__image only-light" alt="Python Programming (CS2023) - Home"/>
+    <img src="../../_static/uc_logo.svg" class="logo__image only-dark pst-js-only" alt="Python Programming (CS2023) - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../syllabus/cs2023.html">
+                    Python Programming (CS 2023)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/24fs/24fs.html">Fall Semester 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/instructor-information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/assessment-plan-and-policies.html">Assessment Plan and Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/grading-policy.html">Grading Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/university-policies.html">University Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../lectures.html">Lecture Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-1-27AUG2024.html">Lecture 1, Aug 27, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../day1/class-profile.html">Class Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day1/claude-3.5-sonnet-demonstration.html">Claude 3.5 Sonnet Demonstration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-2-29AUG2024.html">Lecture 2, Aug 29, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python-shell/python-shell.html">Python Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipython-shell/ipython-shell.html">IPython Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jupyter-notebooks/jupyter-notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-scripts/python-scripts.html">Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-interpreter/interpreter-basics.html">Basics of the Python Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-style-guide/python-style-guide.html">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../variables-and-data-types.html">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerics/numeric-types.html">Numeric Types</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../booleans/boolean-type.html">Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../strings/string-type.html">String Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-3-03SEP2024.html">Lecture 3, Sep 3, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists-shallow-and-deep-copy.html">Lists: Shallow and Deep Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists-hands-on.html">Lists: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tuples/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tuples/tuples-hands-on.html">Tuples: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-and-unpacking/packing-and-unpacking.html">Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-and-unpacking/argument-packing-hands-on.html">Argument Packing: Hands-On Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-4-05SEP2024.html">Lecture 4, Sep 5, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionary-performance-additional-explanation.html">Dictionary Performance: Additional Explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionaries-hands-on.html">Dictionaries: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/hash-tables-conceptual-overview.html">Hash Tables: Conceptual Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sets/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sets/sets-hands-on.html">Sets: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-structures-use-cases.html">Data Structures: Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../type-checking.html">Type Checking</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-5-10SEP2024.html">Lecture 5, Sep 10, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/functions.html">Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-6-12SEP2024.html">Lecture 6, Sep 12, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/logical-comparisons.html">Logical Comparisons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/conditional-statements.html">Conditional Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/loops.html">Loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-7-17SEP2024.html">Lecture 7, Sep 17, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-8-19SEP2024.html">Lecture 8, Sep 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-9-24SEP2024.html">Lecture 9, Sep 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-10-26SEP2024.html">Lecture 10, Sep 26, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-11-01OCT2024.html">Lecture 11, October 1, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-12-03OCT2024.html">Lecture 12, October 3, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-13-08OCT2024.html">Lecture 13, October 8, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-14-15OCT2024.html">Lecture 14, October 15, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-15-22OCT2024.html">Lecture 15, October 22, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-16-24OCT2024.html">Lecture 16, October 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-17-29OCT2024.html">Lecture 17, October 29, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-18-31OCT2024.html">Lecture 18, October 31, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-19-05NOV2024.html">Lecture 19, November 5, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-20-07NOV2024.html">Lecture 20, November 7, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-21-12NOV2024.html">Lecture 21, November 12, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-22-14NOV2024.html">Lecture 22, November 14, 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../exercises.html">Practice Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/01_strings.html">String Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/02_numbers.html">Number Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/03_lists.html">List Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/04_tuples.html">Tuple Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/05_sets.html">Sets and Frozen Sets Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../knowledge-checks.html">Knowledge Checks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-1.html">Knowledge Check 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-2.html">Knowledge Check 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-3.html">Knowledge Check 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-4.html">Knowledge Check 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programming-assignments.html">Programming Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming-assignments/assignment-1/assignment-1.html">Assignment 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/user-class.html"><code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/post-class.html"><code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/comment-class.html"><code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/reference-material.html">Reference Material</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming-assignments/assignment-2/assignment-2.html">Assignment 2: QuizMe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/question-abstract-base-class.html"><code class="docutils literal notranslate"><span class="pre">Question</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/truefalse-class.html"><code class="docutils literal notranslate"><span class="pre">TrueFalse</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/shortanswer-class.html"><code class="docutils literal notranslate"><span class="pre">ShortAnswer</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/box-class.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/boxmanager-class.html"><code class="docutils literal notranslate"><span class="pre">BoxManager</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/arcontroller-class.html"><code class="docutils literal notranslate"><span class="pre">ARController</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/quizme.html"><code class="docutils literal notranslate"><span class="pre">quizme</span></code> CLI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming-assignments/assignment-3/assignment-3.html">Assignment 3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../faqs.html">FAQs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faqs/github_student_benefits.html">GitHub Student Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faqs/oreilly_access.html">How do I access O’Reilly books?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../external-links.html">External Links</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loudinb/20CS2023/blob/main/docs/topics/requests/requests.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/topics/requests/requests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python’s Requests Library</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documentation">Reference Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-compatability-smaller-80">Asynchronous Compatability {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#http-requests">HTTP Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-smaller-80">Request {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-status-codes-smaller-80">Response Status Codes {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-get-method">The <code class="docutils literal notranslate"><span class="pre">GET</span></code> Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-object">Response Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-status-code">Response Status Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truthiness-of-response-object">Truthiness of Response Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling-smaller-70">Exception Handling {.smaller-70}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-content-smaller-70">Response Content {.smaller-70}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-content-continued-smaller-80">Response Content (continued) {.smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-headers-hide">Response Headers {.hide}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters-hide-smaller-80">Request Parameters {.hide .smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters-continued-hide-smaller-80">Request Parameters (continued) {.hide .smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-headers-hide-smaller-70">Request Headers {.hide .smaller-70}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-http-methods">Other HTTP Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-authentication-smaller-80">API Authentication {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-api-authentication-smaller-80">GitHub API Authentication {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-api-authentication-continued-hide-smaller-80">GitHub API Authentication (continued) {.hide .smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-api-know-it-s-you-hide">How Does the API Know it’s You ? {.hide}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-my-approach-secure">Is My Approach Secure?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-dotenv">Using <code class="docutils literal notranslate"><span class="pre">dotenv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssl-verification">SSL Verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-optimization-hide-smaller-70">Performance Optimization {.hide .smaller-70}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">The End</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-s-requests-library">
+<h1>Python’s Requests Library<a class="headerlink" href="#python-s-requests-library" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Requests</strong> is the de facto standard for making HTTP requests in Python.</p></li>
+<li><p>Abstracts complex <code class="docutils literal notranslate"><span class="pre">urllib3</span></code> implementations into a human-friendly API</p></li>
+</ul>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Intuitive HTTP methods: <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code>, <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>, <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code></p></li>
+<li><p>Rich response objects with built-in JSON parsing: <code class="docutils literal notranslate"><span class="pre">response.json()</span></code></p></li>
+<li><p>Allows customization with headers, query parameters, and payloads.</p></li>
+<li><p>Handles cookies, sessions, and authentication seamlessly.</p></li>
+</ul>
+</section>
+<section id="common-use-cases">
+<h2>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>RESTful API interactions</p></li>
+<li><p>Web scraping</p></li>
+<li><p>File downloads/uploads</p></li>
+<li><p>Authentication flows (Basic, OAuth, Custom)</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To install Requests, use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+</section>
+<section id="reference-documentation">
+<h2>Reference Documentation<a class="headerlink" href="#reference-documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python-requests.org/en/master/">Requests Documentation</a></p></li>
+</ul>
+</section>
+<section id="asynchronous-compatability-smaller-80">
+<h2>Asynchronous Compatability {.smaller-80}<a class="headerlink" href="#asynchronous-compatability-smaller-80" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library is synchronous-only and will block async applications.  For async HTTP requests, use alternatives like:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aiohttp</span></code>: Full-featured async HTTP client/server framework</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">httpx</span></code>: Modern async/sync HTTP client with Requests-like API</p></li>
+</ul>
+</section>
+<section id="http-requests">
+<h2>HTTP Requests<a class="headerlink" href="#http-requests" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>GET</strong>: Retrieve data from a specified resource.</p></li>
+<li><p><strong>POST</strong>: Send data to create a resource.</p></li>
+<li><p><strong>PUT</strong>: Update a resource with new data.</p></li>
+<li><p><strong>DELETE</strong>: Remove a resource.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># Example of GET request</span>
+</pre></div>
+</div>
+</section>
+<section id="request-smaller-80">
+<h2>Request {.smaller-80}<a class="headerlink" href="#request-smaller-80" title="Link to this heading">#</a></h2>
+<p>An HTTP <strong>request</strong> is a message sent from a client (like a web browser or API client) to a server. Each request contains several key components:</p>
+<ul class="simple">
+<li><p><strong>Method</strong>: The HTTP method used to make the request (e.g., GET, POST).</p></li>
+<li><p><strong>URL</strong>: The URL of the resource being requested.</p></li>
+<li><p><strong>Headers</strong>: Additional metadata sent with the request (e.g., content type).</p></li>
+<li><p><strong>Body</strong>: Data sent with the request (e.g., form data, JSON payload).</p></li>
+</ul>
+</section>
+<section id="response">
+<h2>Response<a class="headerlink" href="#response" title="Link to this heading">#</a></h2>
+<p>Every HTTP request returns a <strong>response</strong> object with the following attributes:</p>
+<ul class="simple">
+<li><p><strong>Status Code</strong>: HTTP status code</p></li>
+<li><p><strong>Headers</strong>: Response headers</p></li>
+<li><p><strong>Body</strong>: Response content (e.g., HTML, JSON, binary data)</p></li>
+</ul>
+</section>
+<section id="response-status-codes-smaller-80">
+<h2>Response Status Codes {.smaller-80}<a class="headerlink" href="#response-status-codes-smaller-80" title="Link to this heading">#</a></h2>
+<p>HTTP status codes indicate the status of the server’s response. Some common status codes are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">Continue</span></code>: Request received, please continue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>: Request was successful.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>: Resource not found.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span></code>: Server error.</p></li>
+</ul>
+</section>
+<section id="the-get-method">
+<h2>The <code class="docutils literal notranslate"><span class="pre">GET</span></code> Method<a class="headerlink" href="#the-get-method" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">GET</span></code> method indicates that you’re trying to get data from a resource.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="response-object">
+<h3>Response Object<a class="headerlink" href="#response-object" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">response</span></code> object contains the server’s response to the HTTP request.  If we store the response in a variable, we can use the <code class="docutils literal notranslate"><span class="pre">response</span></code> object to access the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="response-status-code">
+<h3>Response Status Code<a class="headerlink" href="#response-status-code" title="Link to this heading">#</a></h3>
+<p>By accessing <code class="docutils literal notranslate"><span class="pre">.status_code</span></code>, you can see the status code that the server returned:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Found.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="truthiness-of-response-object">
+<h3>Truthiness of Response Object<a class="headerlink" href="#truthiness-of-response-object" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">response</span></code> object has a boolean value, which is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the status code is between 200 and 400, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">response</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error has occurred.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="exception-handling-smaller-70">
+<h3>Exception Handling {.smaller-70}<a class="headerlink" href="#exception-handling-smaller-70" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library considers any status code in the 400 or 500 range as unsuccessful.  To simplify error handling, use the <code class="docutils literal notranslate"><span class="pre">raise_for_status()</span></code> method to automatically raise an exception for unsuccessful requests. This allows you to avoid writing multiple <code class="docutils literal notranslate"><span class="pre">if</span></code> statements to check for various HTTP status codes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests.exceptions</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+
+<span class="n">URLS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">,</span> <span class="s2">&quot;https://api.github.com/invalid&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">URLS</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">http_err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HTTP error occurred: </span><span class="si">{</span><span class="n">http_err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Other error occurred: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="response-content-smaller-70">
+<h3>Response Content {.smaller-70}<a class="headerlink" href="#response-content-smaller-70" title="Link to this heading">#</a></h3>
+<p>The message body of a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request response contains the retrieved information, commonly referred to as the <strong>payload</strong>.  The Response object provides several attributes and methods that allow you to view and interact with this payload in various formats.</p>
+<ul class="simple">
+<li><p><strong>.content</strong>: Raw bytes of the response.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>  <span class="c1"># Access raw bytes</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>.text</strong>: Decoded text of the response.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>     <span class="c1"># Access decoded text</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>.json()</strong>: Convert response to JSON.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>   <span class="c1"># Access JSON data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;current_user_url&#39;: &#39;https://api.github.com/user&#39;, &#39;current_user_authorizations_html_url&#39;: &#39;https://github.com/settings/connections/applications{/client_id}&#39;, &#39;authorizations_url&#39;: &#39;https://api.github.com/authorizations&#39;, &#39;code_search_url&#39;: &#39;https://api.github.com/search/code?q={query}{&amp;page,per_page,sort,order}&#39;, &#39;commit_search_url&#39;: &#39;https://api.github.com/search/commits?q={query}{&amp;page,per_page,sort,order}&#39;, &#39;emails_url&#39;: &#39;https://api.github.com/user/emails&#39;, &#39;emojis_url&#39;: &#39;https://api.github.com/emojis&#39;, &#39;events_url&#39;: &#39;https://api.github.com/events&#39;, &#39;feeds_url&#39;: &#39;https://api.github.com/feeds&#39;, &#39;followers_url&#39;: &#39;https://api.github.com/user/followers&#39;, &#39;following_url&#39;: &#39;https://api.github.com/user/following{/target}&#39;, &#39;gists_url&#39;: &#39;https://api.github.com/gists{/gist_id}&#39;, &#39;hub_url&#39;: &#39;https://api.github.com/hub&#39;, &#39;issue_search_url&#39;: &#39;https://api.github.com/search/issues?q={query}{&amp;page,per_page,sort,order}&#39;, &#39;issues_url&#39;: &#39;https://api.github.com/issues&#39;, &#39;keys_url&#39;: &#39;https://api.github.com/user/keys&#39;, &#39;label_search_url&#39;: &#39;https://api.github.com/search/labels?q={query}&amp;repository_id={repository_id}{&amp;page,per_page}&#39;, &#39;notifications_url&#39;: &#39;https://api.github.com/notifications&#39;, &#39;organization_url&#39;: &#39;https://api.github.com/orgs/{org}&#39;, &#39;organization_repositories_url&#39;: &#39;https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}&#39;, &#39;organization_teams_url&#39;: &#39;https://api.github.com/orgs/{org}/teams&#39;, &#39;public_gists_url&#39;: &#39;https://api.github.com/gists/public&#39;, &#39;rate_limit_url&#39;: &#39;https://api.github.com/rate_limit&#39;, &#39;repository_url&#39;: &#39;https://api.github.com/repos/{owner}/{repo}&#39;, &#39;repository_search_url&#39;: &#39;https://api.github.com/search/repositories?q={query}{&amp;page,per_page,sort,order}&#39;, &#39;current_user_repositories_url&#39;: &#39;https://api.github.com/user/repos{?type,page,per_page,sort}&#39;, &#39;starred_url&#39;: &#39;https://api.github.com/user/starred{/owner}{/repo}&#39;, &#39;starred_gists_url&#39;: &#39;https://api.github.com/gists/starred&#39;, &#39;topic_search_url&#39;: &#39;https://api.github.com/search/topics?q={query}{&amp;page,per_page}&#39;, &#39;user_url&#39;: &#39;https://api.github.com/users/{user}&#39;, &#39;user_organizations_url&#39;: &#39;https://api.github.com/user/orgs&#39;, &#39;user_repositories_url&#39;: &#39;https://api.github.com/users/{user}/repos{?type,page,per_page,sort}&#39;, &#39;user_search_url&#39;: &#39;https://api.github.com/search/users?q={query}{&amp;page,per_page,sort,order}&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="response-content-continued-smaller-80">
+<h3>Response Content (continued) {.smaller-80}<a class="headerlink" href="#response-content-continued-smaller-80" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">response.json()</span></code> method attempts to parse the response content as JSON and, if successful, returns a Python dictionary (or list, if the JSON data is an array). This allows you to interact with the data as you would with any other Python dictionary or list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com&#39;</span><span class="p">)</span>
+<span class="n">response_dict</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response_dict</span><span class="p">[</span><span class="s2">&quot;emojis_url&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://api.github.com/emojis&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="response-headers-hide">
+<h3>Response Headers {.hide}<a class="headerlink" href="#response-headers-hide" title="Link to this heading">#</a></h3>
+<p>HTTP <strong>response headers</strong> are metadata associated with the request and response, such as the content type, date, and server information. The <code class="docutils literal notranslate"><span class="pre">.headers</span></code> attribute is a dictionary of the response headers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>application/json; charset=utf-8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="request-parameters-hide-smaller-80">
+<h3>Request Parameters {.hide .smaller-80}<a class="headerlink" href="#request-parameters-hide-smaller-80" title="Link to this heading">#</a></h3>
+<p><strong>Request parameters</strong> allow you to filter, sort, and customize data when making a request. You can include them in the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> method by passing a dictionary to the <code class="docutils literal notranslate"><span class="pre">params</span></code> argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.github.com/search/repositories&quot;</span><span class="p">,</span> 
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;language:python&quot;</span><span class="p">,</span> <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="s2">&quot;stars&quot;</span><span class="p">,</span> <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="s2">&quot;desc&quot;</span><span class="p">})</span>
+
+<span class="n">dict_response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">repos</span> <span class="o">=</span> <span class="n">dict_response</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repos</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">repo</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stars: </span><span class="si">{</span><span class="n">repo</span><span class="p">[</span><span class="s1">&#39;stargazers_count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Description: </span><span class="si">{</span><span class="n">repo</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="request-parameters-continued-hide-smaller-80">
+<h3>Request Parameters (continued) {.hide .smaller-80}<a class="headerlink" href="#request-parameters-continued-hide-smaller-80" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">params</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> method accepts:</p>
+<ul class="simple">
+<li><p>A dictionary</p></li>
+<li><p>A list of tuples</p></li>
+<li><p>A string</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.github.com/search/repositories&quot;</span><span class="p">,</span> 
+    <span class="n">params</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;q&quot;</span><span class="p">,</span> <span class="s2">&quot;language:python&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;sort&quot;</span><span class="p">,</span> <span class="s2">&quot;stars&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;order&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">)])</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.github.com/search/repositories&quot;</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;q=language:python&amp;sort=stars&amp;order=desc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="request-headers-hide-smaller-70">
+<h3>Request Headers {.hide .smaller-70}<a class="headerlink" href="#request-headers-hide-smaller-70" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library allows you to customize the <strong>request headers</strong> by passing a dictionary to the <code class="docutils literal notranslate"><span class="pre">headers</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> method.</p>
+<p>In this example, the <strong>Accept</strong> header tells the server what content types your application can handle, <code class="docutils literal notranslate"><span class="pre">application/vnd.github.text-match+json</span></code>, which is a
+GitHub specific <strong>Accept</strong> header where the content is a special JSON format (for match highlighting).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.github.com/search/repositories&quot;</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;cincinnati hackathon&quot;</span><span class="p">},</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github.text-match+json&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">dict_response</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">first_repository</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_repository</span><span class="p">[</span><span class="s2">&quot;text_matches&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;matches&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="other-http-methods">
+<h2>Other HTTP Methods<a class="headerlink" href="#other-http-methods" title="Link to this heading">#</a></h2>
+<p>We focused on the <code class="docutils literal notranslate"><span class="pre">GET</span></code> method, but the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library supports other HTTP methods as well:</p>
+<ul class="simple">
+<li><p><strong>POST</strong>: Create a new resource.</p></li>
+<li><p><strong>PUT</strong>: Update an existing resource.</p></li>
+<li><p><strong>DELETE</strong>: Remove a resource.</p></li>
+<li><p><strong>PATCH</strong>: Update a resource partially.</p></li>
+<li><p><strong>HEAD</strong>: Retrieve headers only.</p></li>
+</ul>
+</section>
+<section id="api-authentication-smaller-80">
+<h2>API Authentication {.smaller-80}<a class="headerlink" href="#api-authentication-smaller-80" title="Link to this heading">#</a></h2>
+<p>API authentication is a way to identify and authorize users to access an API. There are several ways to authenticate with an API, including:</p>
+<ul class="simple">
+<li><p><strong>Basic Authentication</strong>: Username and password.</p></li>
+<li><p><strong>Token-based Authentication</strong>: Access tokens.</p></li>
+<li><p><strong>API Keys</strong>: Unique keys for an application or user.</p></li>
+<li><p><strong>OAuth</strong>: Authorization framework for third-party applications.</p></li>
+</ul>
+</section>
+<section id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Basic Authentication</strong>: Pass a tuple with username and password.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/user&quot;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Bearer Token Authentication</strong>: Use custom headers.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer &lt;token&gt;&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com/user&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="github-api-authentication-smaller-80">
+<h2>GitHub API Authentication {.smaller-80}<a class="headerlink" href="#github-api-authentication-smaller-80" title="Link to this heading">#</a></h2>
+<p>The GitHub API allows you to authenticate using an <strong>API token</strong>. To authenticate with the GitHub API, you need to pass your token in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header.</p>
+<p>First, create a personal access token on GitHub:</p>
+<ol class="arabic simple">
+<li><p>Go to your GitHub account settings.</p></li>
+<li><p>Click on Developer settings.</p></li>
+<li><p>Click on Personal access tokens.</p></li>
+<li><p>Click on Generate new token.</p></li>
+<li><p>Give your token a name and select the scopes you need.</p></li>
+<li><p>Click on Generate token.</p></li>
+</ol>
+</section>
+<section id="github-api-authentication-continued-hide-smaller-80">
+<h2>GitHub API Authentication (continued) {.hide .smaller-80}<a class="headerlink" href="#github-api-authentication-continued-hide-smaller-80" title="Link to this heading">#</a></h2>
+<p>After creating your token, you can use it to authenticate with the GitHub API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Replace with your token from GitHub</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;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&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/vnd.github+json&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># Make authenticated request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.github.com/user&quot;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">user_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authenticated as: </span><span class="si">{</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authentication failed: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="how-does-the-api-know-it-s-you-hide">
+<h2>How Does the API Know it’s You ? {.hide}<a class="headerlink" href="#how-does-the-api-know-it-s-you-hide" title="Link to this heading">#</a></h2>
+<p><strong>How does it know it’s you?</strong></p>
+<p>When you create a Personal Access Token (PAT), GitHub generates and stores a cryptographic hash of your token along with your user ID and permissions. Later, when you make an API request with your token, GitHub hashes the provided token and looks up the result to verify who it belongs to and the granted access rights.</p>
+</section>
+<section id="is-my-approach-secure">
+<h2>Is My Approach Secure?<a class="headerlink" href="#is-my-approach-secure" title="Link to this heading">#</a></h2>
+<p><strong>NO</strong></p>
+<p>You should never hardcode your API tokens in your code. Instead, you should store them in a secure location, such as environment variables or a configuration file. This prevents accidental exposure of your tokens in your codebase.</p>
+<section id="using-dotenv">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">dotenv</span></code><a class="headerlink" href="#using-dotenv" title="Link to this heading">#</a></h3>
+<p>One approach is to use a library like <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code> to load environment variables from a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;GITHUB_TOKEN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Is this enough to be secure?</strong></p>
+</section>
+</section>
+<section id="ssl-verification">
+<h2>SSL Verification<a class="headerlink" href="#ssl-verification" title="Link to this heading">#</a></h2>
+<p>Requests verifies SSL certificates by default for secure connections.  <strong>Do not disable SSL verification</strong> unless you have a good reason to do so – don’t follow someone’s advices blindly without knowing the risks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-optimization-hide-smaller-70">
+<h2>Performance Optimization {.hide .smaller-70}<a class="headerlink" href="#performance-optimization-hide-smaller-70" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library provides several options to optimize performance and improve the efficiency of your HTTP requests.  You need to consider these options based on your specific use case, specifically the server you are interacting with.</p>
+<ul class="simple">
+<li><p><strong>Timeout</strong>: Control wait time for a response.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Session Object</strong>: Use <code class="docutils literal notranslate"><span class="pre">Session</span></code> for persistent connections.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Retries</strong>: Configure retries using adapters.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">requests.adapters</span> <span class="kn">import</span> <span class="n">HTTPAdapter</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">adapter</span> <span class="o">=</span> <span class="n">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-end">
+<h2>The End<a class="headerlink" href="#the-end" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topics/requests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-documentation">Reference Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchronous-compatability-smaller-80">Asynchronous Compatability {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#http-requests">HTTP Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-smaller-80">Request {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-status-codes-smaller-80">Response Status Codes {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-get-method">The <code class="docutils literal notranslate"><span class="pre">GET</span></code> Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-object">Response Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-status-code">Response Status Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truthiness-of-response-object">Truthiness of Response Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exception-handling-smaller-70">Exception Handling {.smaller-70}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-content-smaller-70">Response Content {.smaller-70}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-content-continued-smaller-80">Response Content (continued) {.smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-headers-hide">Response Headers {.hide}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters-hide-smaller-80">Request Parameters {.hide .smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-parameters-continued-hide-smaller-80">Request Parameters (continued) {.hide .smaller-80}</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-headers-hide-smaller-70">Request Headers {.hide .smaller-70}</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-http-methods">Other HTTP Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-authentication-smaller-80">API Authentication {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-api-authentication-smaller-80">GitHub API Authentication {.smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-api-authentication-continued-hide-smaller-80">GitHub API Authentication (continued) {.hide .smaller-80}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-api-know-it-s-you-hide">How Does the API Know it’s You ? {.hide}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#is-my-approach-secure">Is My Approach Secure?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-dotenv">Using <code class="docutils literal notranslate"><span class="pre">dotenv</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssl-verification">SSL Verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-optimization-hide-smaller-70">Performance Optimization {.hide .smaller-70}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end">The End</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
