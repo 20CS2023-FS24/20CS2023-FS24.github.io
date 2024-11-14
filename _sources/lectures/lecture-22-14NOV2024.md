@@ -2,7 +2,7 @@
 
 
 - [GUI Frameworks](https://20cs2023-fs24.github.io/slides/docs/topics/gui/gui_frameworks.html)
-- [Pong](https://20cs2023-fs24.github.io/slides/docs/topics/gui/pong.html)
+- [Pong Tutorial](https://20cs2023-fs24.github.io/slides/docs/topics/gui/pong_tutorial.html)
 
 
 ```{admonition} Reminders
