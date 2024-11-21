@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Knowledge Check 4 &#8212; Python Programming (CS2023)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/quarto-styles.css?v=2acfc168" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3afe5843" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge-checks/knowledge-check-4';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Programming Assignments" href="../programming-assignments.html" />
+    <link rel="prev" title="Knowledge Check 3" href="knowledge-check-3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../syllabus/cs2023.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uc_logo.svg" class="logo__image only-light" alt="Python Programming (CS2023) - Home"/>
+    <img src="../_static/uc_logo.svg" class="logo__image only-dark pst-js-only" alt="Python Programming (CS2023) - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus/cs2023.html">
+                    Python Programming (CS 2023)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/24fs/24fs.html">Fall Semester 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/instructor-information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/assessment-plan-and-policies.html">Assessment Plan and Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading-policy.html">Grading Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/university-policies.html">University Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures.html">Lecture Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-1-27AUG2024.html">Lecture 1, Aug 27, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/day1/class-profile.html">Class Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/day1/claude-3.5-sonnet-demonstration.html">Claude 3.5 Sonnet Demonstration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-2-29AUG2024.html">Lecture 2, Aug 29, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-shell/python-shell.html">Python Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/ipython-shell/ipython-shell.html">IPython Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/jupyter-notebooks/jupyter-notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-scripts/python-scripts.html">Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-interpreter/interpreter-basics.html">Basics of the Python Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-style-guide/python-style-guide.html">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/variables-and-data-types.html">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/numerics/numeric-types.html">Numeric Types</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../topics/booleans/boolean-type.html">Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/strings/string-type.html">String Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-3-03SEP2024.html">Lecture 3, Sep 3, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists.html">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists-shallow-and-deep-copy.html">Lists: Shallow and Deep Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists-hands-on.html">Lists: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/tuples/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/tuples/tuples-hands-on.html">Tuples: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/packing-and-unpacking/packing-and-unpacking.html">Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/packing-and-unpacking/argument-packing-hands-on.html">Argument Packing: Hands-On Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-4-05SEP2024.html">Lecture 4, Sep 5, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionary-performance-additional-explanation.html">Dictionary Performance: Additional Explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionaries-hands-on.html">Dictionaries: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/hash-tables-conceptual-overview.html">Hash Tables: Conceptual Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/sets/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/sets/sets-hands-on.html">Sets: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/data-structures-use-cases.html">Data Structures: Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/type-checking.html">Type Checking</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-5-10SEP2024.html">Lecture 5, Sep 10, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/functions/functions.html">Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-6-12SEP2024.html">Lecture 6, Sep 12, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/logical-comparisons.html">Logical Comparisons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/conditional-statements.html">Conditional Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/loops.html">Loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-7-17SEP2024.html">Lecture 7, Sep 17, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-8-19SEP2024.html">Lecture 8, Sep 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-9-24SEP2024.html">Lecture 9, Sep 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-10-26SEP2024.html">Lecture 10, Sep 26, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-11-01OCT2024.html">Lecture 11, October 1, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-12-03OCT2024.html">Lecture 12, October 3, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-13-08OCT2024.html">Lecture 13, October 8, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-14-15OCT2024.html">Lecture 14, October 15, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-15-22OCT2024.html">Lecture 15, October 22, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-16-24OCT2024.html">Lecture 16, October 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-17-29OCT2024.html">Lecture 17, October 29, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-18-31OCT2024.html">Lecture 18, October 31, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-19-05NOV2024.html">Lecture 19, November 5, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-20-07NOV2024.html">Lecture 20, November 7, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-21-12NOV2024.html">Lecture 21, November 12, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-22-14NOV2024.html">Lecture 22, November 14, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-23-19NOV2024.html">Lecture 23, November 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-24-21NOV2024.html">Lecture 24, November 21, 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises.html">Practice Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/01_strings.html">String Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/02_numbers.html">Number Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/03_lists.html">List Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/04_tuples.html">Tuple Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/05_sets.html">Sets and Frozen Sets Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../knowledge-checks.html">Knowledge Checks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-1.html">Knowledge Check 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-2.html">Knowledge Check 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-3.html">Knowledge Check 3</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Knowledge Check 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programming-assignments.html">Programming Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../programming-assignments/assignment-1/assignment-1.html">Assignment 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/user-class.html"><code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/post-class.html"><code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/comment-class.html"><code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/reference-material.html">Reference Material</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../programming-assignments/assignment-2/assignment-2.html">Assignment 2: QuizMe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/question-abstract-base-class.html"><code class="docutils literal notranslate"><span class="pre">Question</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/truefalse-class.html"><code class="docutils literal notranslate"><span class="pre">TrueFalse</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/shortanswer-class.html"><code class="docutils literal notranslate"><span class="pre">ShortAnswer</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/box-class.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/boxmanager-class.html"><code class="docutils literal notranslate"><span class="pre">BoxManager</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/arcontroller-class.html"><code class="docutils literal notranslate"><span class="pre">ARController</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/quizme.html"><code class="docutils literal notranslate"><span class="pre">quizme</span></code> CLI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../programming-assignments/assignment-3/assignment-3.html">Assignment 3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../faqs.html">FAQs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faqs/github_student_benefits.html">GitHub Student Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faqs/oreilly_access.html">How do I access O’Reilly books?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../external-links.html">External Links</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loudinb/20CS2023/blob/main/docs/knowledge-checks/knowledge-check-4.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/knowledge-checks/knowledge-check-4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Knowledge Check 4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="knowledge-check-4">
+<h1>Knowledge Check 4<a class="headerlink" href="#knowledge-check-4" title="Link to this heading">#</a></h1>
+<ol class="arabic">
+<li><p>Which of the following are true regarding objects? (Select all that apply)</p>
+<p>A. [ ] an object is an instance of a class <br>
+B. [ ] an object can have its unique set of attribute values <br>
+C. [ ] an object can only have one function</p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>What is the special method that is automatically called when a new instance of a class is created, allowing you to initialize the attributes of the class?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_________</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>For the code below, we call the variables <code class="docutils literal notranslate"><span class="pre">genus</span></code> and <code class="docutils literal notranslate"><span class="pre">species</span></code> _____________ of the instance, <code class="docutils literal notranslate"><span class="pre">instance_of_Fungi_class</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fungi</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genus</span> <span class="o">=</span> <span class="n">genus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+
+<span class="n">instance_of_Fungi_class</span> <span class="o">=</span> <span class="n">Fungi</span><span class="p">(</span><span class="s2">&quot;Agaricus&quot;</span><span class="p">,</span> <span class="s2">&quot;bisporus&quot;</span><span class="p">)</span> <span class="c1">#instantiate </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instance_of_Fungi_class</span><span class="o">.</span><span class="n">genus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Fill in the missing parameter in the method definition.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fungi</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genus</span> <span class="o">=</span> <span class="n">genus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">favorite_fungi</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">def</span> <span class="nf">add_fungus</span><span class="p">(</span><span class="n">_______</span><span class="p">,</span> <span class="n">fungus_species</span><span class="p">,</span> <span class="n">common_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">favorite_fungi</span><span class="p">[</span><span class="n">fungus_species</span><span class="p">]</span> <span class="o">=</span> <span class="n">common_name</span>
+
+<span class="n">deadly_fungus</span> <span class="o">=</span> <span class="n">Fungi</span><span class="p">(</span><span class="s2">&quot;Amanita&quot;</span><span class="p">,</span> <span class="s2">&quot;ocreata&quot;</span><span class="p">)</span> 
+<span class="n">deadly_fungus</span><span class="o">.</span><span class="n">add_fungus</span><span class="p">(</span><span class="n">deadly_fungus</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="s2">&quot;Destroying Angel&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;favorite_fungi: </span><span class="si">{</span><span class="n">deadly_fungus</span><span class="o">.</span><span class="n">favorite_fungi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li><p>Which of the following are true about the bolded line of code: (Select all that apply)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fungi</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genus</span> <span class="o">=</span> <span class="n">genus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+
+<span class="n">tasty_fungus</span> <span class="o">=</span> <span class="n">Fungi</span><span class="p">(</span><span class="s2">&quot;Agaricus&quot;</span><span class="p">,</span> <span class="s2">&quot;bisporus&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tasty_fungus</span><span class="o">.</span><span class="n">genus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A. [ ] this is object instantiation <br>
+B. [ ] the <strong>init</strong> function is invoked <br>
+C. [ ] you forgot to explicitly pass “self”. It should be tasty_fungus = Fungi(self, “Agaricus”, “bisporus”)</p>
+</li>
+</ol>
+<ol class="arabic" start="6">
+<li><p>We use dot notation to access both attributes and call methods on instances of classes.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p>You’re working on a <code class="docutils literal notranslate"><span class="pre">Fungi</span></code> class to catalog different species of fungi. You’ve noticed that the <code class="docutils literal notranslate"><span class="pre">favorite_fungi</span></code> dictionary is currently an instance attribute, which means each <code class="docutils literal notranslate"><span class="pre">Fungi</span></code> object has its own separate dictionary. However, you want to maintain a single shared dictionary across all instances of the <code class="docutils literal notranslate"><span class="pre">Fungi</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fungi</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">genus</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genus</span> <span class="o">=</span> <span class="n">genus</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">favorite_fungi</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># This is currently an instance attribute</span>
+    
+    <span class="k">def</span> <span class="nf">add_fungus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fungus_species</span><span class="p">,</span> <span class="n">common_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">favorite_fungi</span><span class="p">[</span><span class="n">fungus_species</span><span class="p">]</span> <span class="o">=</span> <span class="n">common_name</span>
+
+<span class="c1"># Creating instances</span>
+<span class="n">tasty_fungus</span> <span class="o">=</span> <span class="n">Fungi</span><span class="p">(</span><span class="s2">&quot;Agaricus&quot;</span><span class="p">,</span> <span class="s2">&quot;bisporus&quot;</span><span class="p">)</span>
+<span class="n">tasty_fungus</span><span class="o">.</span><span class="n">add_fungus</span><span class="p">(</span><span class="n">tasty_fungus</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="s2">&quot;Portobello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tasty_fungus favorite_fungi: </span><span class="si">{</span><span class="n">tasty_fungus</span><span class="o">.</span><span class="n">favorite_fungi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">deadly_fungus</span> <span class="o">=</span> <span class="n">Fungi</span><span class="p">(</span><span class="s2">&quot;Amanita&quot;</span><span class="p">,</span> <span class="s2">&quot;ocreata&quot;</span><span class="p">)</span>
+<span class="n">deadly_fungus</span><span class="o">.</span><span class="n">add_fungus</span><span class="p">(</span><span class="n">deadly_fungus</span><span class="o">.</span><span class="n">species</span><span class="p">,</span> <span class="s2">&quot;Destroying Angel&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;deadly_fungus favorite_fungi: </span><span class="si">{</span><span class="n">deadly_fungus</span><span class="o">.</span><span class="n">favorite_fungi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which of the following would solve this problem? (Select all that apply)</p>
+<p>A. [ ] Use a global variable <br>
+B. [ ] Make favorite_fungi a class variable <br>
+C. [ ] Use a static method</p>
+</li>
+</ol>
+<ol class="arabic simple" start="8">
+<li><p>For instance methods, what is always the first parameter?</p></li>
+</ol>
+<ol class="arabic" start="9">
+<li><p>Instance methods always begin with <strong>init</strong></p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="10">
+<li><p>Select the correct statement regarding class methods:</p>
+<p>A. [ ] Class methods are always bound to the class and can be called on both the class and its instances. <br>
+B. [ ] Class methods are unbound and can only be called on the class itself, not on instances. <br>
+C. [ ] Class methods are bound to instances and can only be called on instances of the class. <br>
+D. [ ] Class methods are dynamically bound at runtime and can change their binding.</p>
+</li>
+</ol>
+<ol class="arabic simple" start="11">
+<li><p>To indicate that a method is a class method, what is the decorator line that precedes the method definition?</p></li>
+</ol>
+<ol class="arabic simple" start="12">
+<li><p>Attributes specified in the class declaration are called ______ attributes.</p></li>
+</ol>
+<ol class="arabic" start="13">
+<li><p>OOP is a programming approach that organizes code around objects.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="14">
+<li><p>Objects are used to represent entities with both characteristics and behaviors. Which of the following statements most accurately describes the relationship between attributes and data:</p>
+<p>A. [ ] Attributes are external variables that are passed to the object’s methods. <br>
+B. [ ] Attributes are synonymous with class methods and cannot store data. <br>
+C. [ ] Attributes are the data stored within the object, representing its state or characteristics. <br>
+D. [ ] Attributes are the methods that operate on the object’s data.</p>
+</li>
+</ol>
+<ol class="arabic" start="15">
+<li><p>Match the programming paradigm to the description:</p>
+<p>Term:</p>
+<ul class="simple">
+<li><p>Procedural Programming <br></p></li>
+<li><p>Functional Programming <br></p></li>
+<li><p>Object-Oriented Programming <br></p></li>
+</ul>
+<p>Meaning:</p>
+<ul class="simple">
+<li><p>Step-by-step instructions <br></p></li>
+<li><p>Functions to solve problems <br></p></li>
+<li><p>Objects with data and methods</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="16">
+<li><p>____________ is a core concept of OOP about creating new classes from existing ones.</p></li>
+</ol>
+<ol class="arabic simple" start="17">
+<li><p>____________ is a core concept of OOP about hiding complex details.</p></li>
+</ol>
+<ol class="arabic" start="18">
+<li><p>Which of the following are benefits of OOP? (Select all that apply)</p>
+<p>A. [ ] Modularity <br>
+B. [ ] Maintainability <br>
+C. [ ] Complexity</p>
+</li>
+</ol>
+<ol class="arabic" start="19">
+<li><p>You can only instantiate a class object once.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic simple" start="20">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is the __________ for a class.</p></li>
+</ol>
+<ol class="arabic" start="21">
+<li><p>Match the term to the definition:</p>
+<p>Term:</p>
+<ul class="simple">
+<li><p>Attributes</p></li>
+<li><p>Methods</p></li>
+</ul>
+<p>Meaning:</p>
+<ul class="simple">
+<li><p>Functions that operate on the object’s data (behavior)</p></li>
+<li><p>Data associated with an object</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="22">
+<li><p>We _________ objects from a class to create concrete instances with specific attribute values.</p>
+<p>A. [ ] instantiate <br>
+B. [ ] concatenate <br>
+C. [ ] interpret <br>
+D. [ ] syscall</p>
+</li>
+</ol>
+<ol class="arabic" start="23">
+<li><p>A class is named <code class="docutils literal notranslate"><span class="pre">Dog</span></code>. We want to access the value of the attribute, <code class="docutils literal notranslate"><span class="pre">name</span></code>, (after instantiation).</p>
+<p>Which option is correct to do this?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Sunday&quot;</span><span class="p">)</span> <span class="c1"># yes like the day, not like Sundae </span>
+<span class="n">my_dog_name</span> <span class="o">=</span> <span class="n">______________</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dog_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A. [ ] <a class="reference external" href="http://res.name">res.name</a> <br>
+B. [ ] <a class="reference external" href="http://Dog.name">Dog.name</a> <br>
+C. [ ] res(Dog).name <br>
+D. [ ] name(Dog)</p>
+</li>
+</ol>
+<ol class="arabic" start="24">
+<li><p>Which of the following are true about <strong>class</strong> attributes? (Select all that apply)</p>
+<p>A. [ ] Attributes are shared by all instances of a class <br>
+B. [ ] They always accessed with get() <br>
+C. [ ] They are defined with the methods of the class <br>
+D. [ ] They are defined within the class construction but outside of any method definitions.</p>
+</li>
+</ol>
+<ol class="arabic" start="25">
+<li><p>Which of the following is a class attribute for this code?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Book</span><span class="p">:</span>
+    <span class="n">book_count</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span>
+        <span class="n">Book</span><span class="o">.</span><span class="n">book_count</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>A. [ ] book_count <br>
+B. [ ] book <br>
+C. [ ] Book <br>
+D. [ ] init</p>
+</li>
+</ol>
+<ol class="arabic" start="26">
+<li><p>The bolded and underlined code demonstrates __________ attribute access.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Book</span><span class="p">:</span>
+    <span class="n">book_count</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span>
+        <span class="n">Book</span><span class="o">.</span><span class="n">book_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">book1</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;The Hitchhiker&#39;s Guide to the Galaxy&quot;</span><span class="p">)</span>
+<span class="n">book2</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;The Restaurant at the End of the Universe&quot;</span><span class="p">)</span>
+<span class="n">book3</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Life, the Universe and Everything&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book2</span><span class="o">.</span><span class="n">book</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">book_count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A. [ ] instance <br>
+B. [ ] class <br>
+C. [ ] API <br>
+D. [ ] port</p>
+</li>
+</ol>
+<ol class="arabic" start="27">
+<li><p>Which of the following are true about class methods? (Select all that apply)</p>
+<p>A. [ ] they that operate on the class itself <br>
+B. [ ] they’re defined using &#64;classmethod <br>
+C. [ ] the first param is cls <br>
+D. [ ] the first param is self</p>
+</li>
+</ol>
+<ol class="arabic" start="28">
+<li><p>Both class attributes and instance attributes can be modified in class methods.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="29">
+<li><p>A class method is only called on an instance of a class.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic simple" start="30">
+<li><p>You use the decorator, &#64;___________ to denote static methods.</p></li>
+</ol>
+<ol class="arabic" start="31">
+<li><p>Is a class method or static method intended to be essentially a utility function?</p>
+<p>A. [ ] static <br>
+B. [ ] class</p>
+</li>
+</ol>
+<ol class="arabic" start="32">
+<li><p>Static methods can access or modify class state.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="33">
+<li><p>Which of the following are reasons to use a class method? (Select all that apply)</p>
+<p>A. [ ] When you want the method to be able to modify the class state <br>
+B. [ ] When the method is creating instances (factory method) <br>
+C. [ ] When defining instance attributes</p>
+</li>
+</ol>
+<ol class="arabic" start="34">
+<li><p>Which of the following is a key benefit of using setter methods in object-oriented programming?</p>
+<p>A. [ ] They automatically optimize the performance of attribute access. <br>
+B. [ ] They allow for data validation, preventing invalid states. <br>
+C. [ ] They enable automatic synchronization with external databases. <br>
+D. [ ] They provide built-in encryption for sensitive attributes.</p>
+</li>
+</ol>
+<ol class="arabic" start="35">
+<li><p>When using the &#64;property decorator to create a getter method in Python, you are always required to also implement a corresponding setter method.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="36">
+<li><p>All methods and attributes of the parent class are inherited by the subclasses as long as they are not overridden.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic simple" start="37">
+<li><p>_________ methods don’t operate on instance or class data.</p></li>
+</ol>
+<ol class="arabic" start="38">
+<li><p>Do static methods have a standard first parameter like instance and class methods? If so which of the following?</p>
+<p>A. [ ] No parameters are passed to static methods. <br>
+B. [ ] self <br>
+C. [ ] cls</p>
+</li>
+</ol>
+<ol class="arabic" start="39">
+<li><p>Static methods behave like regular functions but belong to the class namespace.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="40">
+<li><p>Which of the following are limitations of static methods? (Select all that apply)</p>
+<p>A. [ ] They don’t have access to self and cls <br>
+B. [ ] Race conditions are of primary concern <br>
+C. [ ] They are detrimental to namespace organization</p>
+</li>
+</ol>
+<ol class="arabic simple" start="41">
+<li><p>In inheritance, the new class, (subclass) inherits attributes and methods from the existing class, called the _________.</p></li>
+</ol>
+<ol class="arabic" start="42">
+<li><p>The &#64;property decorator in Python is used to:</p>
+<p>A. [ ] To make the methods private and inaccessible from outside the class <br>
+B. [ ] To allow the methods to be called without parentheses, as if they were attributes <br>
+C. [ ] To automatically convert the return values of the methods to properties of the class <br>
+D. [ ] To enable method chaining for these particular methods</p>
+</li>
+</ol>
+<ol class="arabic simple" start="43">
+<li><p>The function, ___________() can be used to call methods from the superclass.</p></li>
+</ol>
+<ol class="arabic" start="44">
+<li><p>A class can inherit from multiple superclasses.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="45">
+<li><p>Fill in the blank with the correct argument(s) to have the <code class="docutils literal notranslate"><span class="pre">Bike</span></code> class inherit from <code class="docutils literal notranslate"><span class="pre">Transportation.</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Transportation</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+
+    <span class="k">def</span> <span class="nf">does</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Bike</span><span class="p">(</span><span class="n">_____________</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">does</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2"> cycles&quot;</span> 
+
+<span class="n">bike</span> <span class="o">=</span> <span class="n">Bike</span><span class="p">(</span><span class="s2">&quot;Andrew&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bike</span><span class="o">.</span><span class="n">does</span><span class="p">())</span> 
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="46">
+<li><p>You can only define a method once in a subclass that already exists in the superclass</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic" start="47">
+<li><p>Match the term to the type of relationship:</p>
+<p>Term:</p>
+<ul class="simple">
+<li><p>inheritance</p></li>
+<li><p>composition</p></li>
+</ul>
+<p>Meaning:</p>
+<ul class="simple">
+<li><p>is-a</p></li>
+<li><p>has-a</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="48">
+<li><p>Composition often provides more flexibility than inheritance.</p>
+<p>[ ] True <br>
+[ ] False</p>
+</li>
+</ol>
+<ol class="arabic simple" start="49">
+<li><p>A best practice for inheritance is to use _______ _______ classes to define interfaces.  (2 words)</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./knowledge-checks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="knowledge-check-3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Knowledge Check 3</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../programming-assignments.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Programming Assignments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

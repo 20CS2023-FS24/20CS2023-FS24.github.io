@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pong &#8212; Python Programming (CS2023)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/quarto-styles.css?v=2acfc168" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3afe5843" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topics/gui/pong_tutorial';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../syllabus/cs2023.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/uc_logo.svg" class="logo__image only-light" alt="Python Programming (CS2023) - Home"/>
+    <img src="../../_static/uc_logo.svg" class="logo__image only-dark pst-js-only" alt="Python Programming (CS2023) - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../syllabus/cs2023.html">
+                    Python Programming (CS 2023)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/24fs/24fs.html">Fall Semester 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/instructor-information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/assessment-plan-and-policies.html">Assessment Plan and Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/grading-policy.html">Grading Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../syllabus/university-policies.html">University Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../lectures.html">Lecture Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-1-27AUG2024.html">Lecture 1, Aug 27, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../day1/class-profile.html">Class Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../day1/claude-3.5-sonnet-demonstration.html">Claude 3.5 Sonnet Demonstration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-2-29AUG2024.html">Lecture 2, Aug 29, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../python-shell/python-shell.html">Python Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipython-shell/ipython-shell.html">IPython Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jupyter-notebooks/jupyter-notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-scripts/python-scripts.html">Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-interpreter/interpreter-basics.html">Basics of the Python Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python-style-guide/python-style-guide.html">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../variables-and-data-types.html">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerics/numeric-types.html">Numeric Types</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../booleans/boolean-type.html">Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../strings/string-type.html">String Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-3-03SEP2024.html">Lecture 3, Sep 3, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists.html">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists-shallow-and-deep-copy.html">Lists: Shallow and Deep Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lists/lists-hands-on.html">Lists: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tuples/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tuples/tuples-hands-on.html">Tuples: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-and-unpacking/packing-and-unpacking.html">Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-and-unpacking/argument-packing-hands-on.html">Argument Packing: Hands-On Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-4-05SEP2024.html">Lecture 4, Sep 5, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionary-performance-additional-explanation.html">Dictionary Performance: Additional Explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/dictionaries-hands-on.html">Dictionaries: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dictionaries/hash-tables-conceptual-overview.html">Hash Tables: Conceptual Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sets/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sets/sets-hands-on.html">Sets: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../data-structures-use-cases.html">Data Structures: Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../type-checking.html">Type Checking</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-5-10SEP2024.html">Lecture 5, Sep 10, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/functions.html">Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lectures/lecture-6-12SEP2024.html">Lecture 6, Sep 12, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/logical-comparisons.html">Logical Comparisons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/conditional-statements.html">Conditional Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controlling-program-flow/loops.html">Loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-7-17SEP2024.html">Lecture 7, Sep 17, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-8-19SEP2024.html">Lecture 8, Sep 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-9-24SEP2024.html">Lecture 9, Sep 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-10-26SEP2024.html">Lecture 10, Sep 26, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-11-01OCT2024.html">Lecture 11, October 1, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-12-03OCT2024.html">Lecture 12, October 3, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-13-08OCT2024.html">Lecture 13, October 8, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-14-15OCT2024.html">Lecture 14, October 15, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-15-22OCT2024.html">Lecture 15, October 22, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-16-24OCT2024.html">Lecture 16, October 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-17-29OCT2024.html">Lecture 17, October 29, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-18-31OCT2024.html">Lecture 18, October 31, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-19-05NOV2024.html">Lecture 19, November 5, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-20-07NOV2024.html">Lecture 20, November 7, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-21-12NOV2024.html">Lecture 21, November 12, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-22-14NOV2024.html">Lecture 22, November 14, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-23-19NOV2024.html">Lecture 23, November 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lectures/lecture-24-21NOV2024.html">Lecture 24, November 21, 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../exercises.html">Practice Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/01_strings.html">String Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/02_numbers.html">Number Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/03_lists.html">List Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/04_tuples.html">Tuple Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises/05_sets.html">Sets and Frozen Sets Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../knowledge-checks.html">Knowledge Checks</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-1.html">Knowledge Check 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-2.html">Knowledge Check 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-3.html">Knowledge Check 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../knowledge-checks/knowledge-check-4.html">Knowledge Check 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programming-assignments.html">Programming Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming-assignments/assignment-1/assignment-1.html">Assignment 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/user-class.html"><code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/post-class.html"><code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/comment-class.html"><code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-1/reference-material.html">Reference Material</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming-assignments/assignment-2/assignment-2.html">Assignment 2: QuizMe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/question-abstract-base-class.html"><code class="docutils literal notranslate"><span class="pre">Question</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/truefalse-class.html"><code class="docutils literal notranslate"><span class="pre">TrueFalse</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/shortanswer-class.html"><code class="docutils literal notranslate"><span class="pre">ShortAnswer</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/box-class.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/boxmanager-class.html"><code class="docutils literal notranslate"><span class="pre">BoxManager</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/arcontroller-class.html"><code class="docutils literal notranslate"><span class="pre">ARController</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming-assignments/assignment-2/quizme.html"><code class="docutils literal notranslate"><span class="pre">quizme</span></code> CLI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming-assignments/assignment-3/assignment-3.html">Assignment 3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../faqs.html">FAQs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faqs/github_student_benefits.html">GitHub Student Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faqs/oreilly_access.html">How do I access O’Reilly books?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../external-links.html">External Links</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loudinb/20CS2023/blob/main/docs/topics/gui/pong_tutorial.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/topics/gui/pong_tutorial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pong</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pong">What is Pong?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-canvas-hide-smaller-85">Step 1: Create the Canvas {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-stationary-ball-hide-smaller-85">Step 2: Create a Stationary Ball {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3a-ball-motion-with-wall-detection-hide-smaller-85">Step 3a: Ball Motion with Wall Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3b-animating-the-ball-hide-smaller-85">Step 3b: Animating the Ball {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-the-paddle-hide-smaller-85">Step 4: Create the Paddle {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5a-paddle-motion-hide-smaller-85">Step 5a: Paddle Motion {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5b-animate-the-paddle-hide-smaller-85">Step 5b: Animate the Paddle {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6a-paddle-collision-detection-hide-smaller-85">Step 6a: Paddle Collision Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6b-ball-collision-movement-hide-smaller-85">Step 6b: Ball Collision Movement {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-hit-bottom-wall-detection-hide-smaller-85">Step 7: Hit Bottom Wall Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8a-game-over-functionality-hide-smaller-85">Step 8a: Game Over Functionality {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8b-game-over-hide-smaller-85">Step 8b: Game Over {.hide .smaller-85}</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pong">
+<h1>Pong<a class="headerlink" href="#pong" title="Link to this heading">#</a></h1>
+<section id="what-is-pong">
+<h2>What is Pong?<a class="headerlink" href="#what-is-pong" title="Link to this heading">#</a></h2>
+<p>Pong is a table tennis–themed arcade sports video game, featuring simple two-dimensional graphics. The game was originally manufactured by Atari, which released it in 1972. Allan Alcorn created Pong as a training exercise assigned to him by Atari co-founder Nolan Bushnell. Atari made it famous, but it was actually copied from a game developed by Magnavox. It resulted in a lawsuit that was settled in 1976, with Atari paying Magnavox some monies.</p>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this tutorial, we will build a simple Pong game step-by-step using Python’s Tkinter library.
+Each step will add new functionality, from creating the canvas and ball to adding paddle controls,
+collision detection, and game management. Let’s get started!</p>
+</section>
+<section id="step-1-create-the-canvas-hide-smaller-85">
+<h2>Step 1: Create the Canvas {.hide .smaller-85}<a class="headerlink" href="#step-1-create-the-canvas-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 1</strong>: First, we’ll create a window and add a canvas where the game will take place. This will be the main area where the ball and paddle will interact.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Create the main window and canvas</span>
+<span class="n">tk</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+<span class="n">tk</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># Prevent window resizing</span>
+<span class="n">tk</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Pong Game&quot;</span><span class="p">)</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s1">&#39;ivory&#39;</span><span class="p">)</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span> <span class="c1"># Pack is used to display objects in the window</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="c1"># Needed to get the rendered canvas size </span>
+
+<span class="c1"># Run the main loop</span>
+<span class="n">tk</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-create-a-stationary-ball-hide-smaller-85">
+<h2>Step 2: Create a Stationary Ball {.hide .smaller-85}<a class="headerlink" href="#step-2-create-a-stationary-ball-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 2</strong>:  We define a <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class to render the ball.  For now, the ball will be stationary in the middle of the canvas, 10% from the top.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">canvas</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span>
+        <span class="c1"># Create an oval (ball) with size 15x15 pixels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="c1"># Move it to the middle of the canvas, 10% from the top</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_height</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we add a <code class="docutils literal notranslate"><span class="pre">Ball</span></code> instance to the canvas, do this below the canvas creation code:</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>canvas.pack()
+canvas.update() # Needed to get the rendered canvas size  
+
+# Create the ball
+ball = Ball(canvas, &#39;red&#39;)
+
+# Run the main loop
+tk.mainloop()
+</pre></div>
+</div>
+</section>
+<section id="step-3a-ball-motion-with-wall-detection-hide-smaller-85">
+<h2>Step 3a: Ball Motion with Wall Detection {.hide .smaller-85}<a class="headerlink" href="#step-3a-ball-motion-with-wall-detection-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 3a</strong>: For ball motion, we start by adding horizontal and vertical speed attributes to the <code class="docutils literal notranslate"><span class="pre">init</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the initial speed of the ball</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Next, we add a <code class="docutils literal notranslate"><span class="pre">draw</span></code> method to the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class to update the ball’s position and detect collisions with the canvas walls.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Move the ball by its speed values</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    
+    <span class="c1"># Wall collision detection</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># Top wall</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_height</span><span class="p">:</span>  <span class="c1"># Bottom wall</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">yspeed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># Left wall</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span><span class="p">:</span>  <span class="c1"># Right wall</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3b-animating-the-ball-hide-smaller-85">
+<h2>Step 3b: Animating the Ball {.hide .smaller-85}<a class="headerlink" href="#step-3b-animating-the-ball-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 3b</strong>: Finally, create an <code class="docutils literal notranslate"><span class="pre">animate</span></code> function that updates and redraws the ball every 10ms and call it in the main loop.  Place this below the instantiation of the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> object.</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span># Create the ball
+ball = Ball(canvas, &#39;red&#39;)
+
+# Animation loop
+def animate():
+    ball.draw()
+    tk.after(10, animate)  # Schedule next update in 10ms
+
+animate()  # Start animation
+tk.mainloop()
+</pre></div>
+</div>
+</section>
+<section id="step-4-create-the-paddle-hide-smaller-85">
+<h2>Step 4: Create the Paddle {.hide .smaller-85}<a class="headerlink" href="#step-4-create-the-paddle-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 4</strong>: Now, we’ll create the paddle, which the player will control to keep the ball in play.  The paddle will be a rectangle and only move horizontally, it will be at rest initially.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Paddle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">canvas</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">create_rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_height</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Add a paddle instance to the canvas, do this <strong>above</strong> the ball creation code:</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span># Create the paddle
+paddle = Paddle(canvas, &#39;blue&#39;)
+
+# Create the ball
+ball = Ball(canvas, &#39;red&#39;)
+</pre></div>
+</div>
+</section>
+<section id="step-5a-paddle-motion-hide-smaller-85">
+<h2>Step 5a: Paddle Motion {.hide .smaller-85}<a class="headerlink" href="#step-5a-paddle-motion-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 5a</strong>: We’ll now bind left and right movement to the paddle using the arrow keys on the keyboard. We need to add event handlers for key presses and releases, and methods to change the paddle speed.  Modify the <code class="docutils literal notranslate"><span class="pre">Paddle</span></code> class as follows:</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>class Paddle:
+    def __init__(self, canvas, color):
+        self.canvas = canvas
+        self.id = canvas.create_rectangle(0, 0, 100, 10, fill=color)
+        self.canvas.move(self.id, 200, 300)
+        self.xspeed = 0
+        # Bind keyboard controls
+        self.canvas.bind_all(&#39;&lt;KeyPress-Left&gt;&#39;, self.move_left)
+        self.canvas.bind_all(&#39;&lt;KeyPress-Right&gt;&#39;, self.move_right)
+    
+    def move_left(self, evt):
+        self.xspeed = -2
+    
+    def move_right(self, evt):
+        self.xspeed = 2
+</pre></div>
+</div>
+</section>
+<section id="step-5b-animate-the-paddle-hide-smaller-85">
+<h2>Step 5b: Animate the Paddle {.hide .smaller-85}<a class="headerlink" href="#step-5b-animate-the-paddle-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 5b</strong>: Add a <code class="docutils literal notranslate"><span class="pre">draw</span></code> method to the <code class="docutils literal notranslate"><span class="pre">Paddle</span></code> class to animate the paddle.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_width</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">xspeed</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Finally, update the <code class="docutils literal notranslate"><span class="pre">animate</span></code> function to include the paddle animation.</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>def animate():
+    ball.draw()
+    paddle.draw()
+    tk.after(10, animate)  # Schedule next update in 10ms
+</pre></div>
+</div>
+</section>
+<section id="step-6a-paddle-collision-detection-hide-smaller-85">
+<h2>Step 6a: Paddle Collision Detection {.hide .smaller-85}<a class="headerlink" href="#step-6a-paddle-collision-detection-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 6a</strong>: Now, we’ll modify the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class to detect collisions with the paddle. First, add the <code class="docutils literal notranslate"><span class="pre">hit_paddle</span></code> method to the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hit_paddle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="n">paddle_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">paddle_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">paddle_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">pos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">paddle_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">pos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">paddle_pos</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</section>
+<section id="step-6b-ball-collision-movement-hide-smaller-85">
+<h2>Step 6b: Ball Collision Movement {.hide .smaller-85}<a class="headerlink" href="#step-6b-ball-collision-movement-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 6b</strong>: Next, modify the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class to include paddle collision detection, and change the ball’s vertical speed when it hits the paddle.</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>def draw(self):
+    # Move the ball by its speed values
+    self.canvas.move(self.id, self.xspeed, self.yspeed)
+    pos = self.canvas.coords(self.id)
+    
+    # Wall collision detection
+    if pos[1] &lt;= 0:    # Top wall
+        self.yspeed = abs(self.yspeed)
+    if pos[3] &gt;= self.canvas_height:  # Bottom wall
+        self.yspeed = -1*abs(self.yspeed)
+    if pos[0] &lt;= 0:    # Left wall
+        self.xspeed = abs(self.xspeed)
+    if pos[2] &gt;= self.canvas_width:  # Right wall
+        self.xspeed = -1*abs(self.xspeed)
+
+    if self.hit_paddle(pos):
+        self.yspeed = -1*abs(self.yspeed)
+</pre></div>
+</div>
+</section>
+<section id="step-7-hit-bottom-wall-detection-hide-smaller-85">
+<h2>Step 7: Hit Bottom Wall Detection {.hide .smaller-85}<a class="headerlink" href="#step-7-hit-bottom-wall-detection-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 7</strong>: We need to update the collision detection to detect if the ball hits the bottom wall, indicating the game is over. Add <code class="docutils literal notranslate"><span class="pre">hit_bottom</span></code> as an attribute to the <code class="docutils literal notranslate"><span class="pre">Ball</span></code> class, initilize it to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">hit_bottom</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">draw</span></code> method to set <code class="docutils literal notranslate"><span class="pre">hit_bottom</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> when the ball hits the bottom wall.</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>def draw(self):
+    # Move the ball by its speed values
+    self.canvas.move(self.id, self.xspeed, self.yspeed)
+    pos = self.canvas.coords(self.id)
+    
+    # Wall collision detection
+    if pos[1] &lt;= 0:    # Top wall
+        self.yspeed = abs(self.yspeed)
+    if pos[3] &gt;= self.canvas_height:  # Bottom wall
+        self.hit_bottom = True
+    if pos[0] &lt;= 0:    # Left wall
+        self.xspeed = abs(self.xspeed)
+    if pos[2] &gt;= self.canvas_width:  # Right wall
+        self.xspeed = -1*abs(self.xspeed)
+</pre></div>
+</div>
+</section>
+<section id="step-8a-game-over-functionality-hide-smaller-85">
+<h2>Step 8a: Game Over Functionality {.hide .smaller-85}<a class="headerlink" href="#step-8a-game-over-functionality-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 8</strong>: Let’s start by adding the functionality needed to let the user know when the game is over. We’ll display a message on the canvas and allow the user to close the game by pressing the space key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">game_over</span><span class="p">():</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">create_text</span><span class="p">(</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;GAME OVER&quot;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>
+    <span class="p">)</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">create_text</span><span class="p">(</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Press Space to quit&quot;</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="c1"># Rebind space key to close the game</span>
+    <span class="n">tk</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;space&gt;&#39;</span><span class="p">,</span> <span class="n">close_game</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">close_game</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">tk</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="step-8b-game-over-hide-smaller-85">
+<h2>Step 8b: Game Over {.hide .smaller-85}<a class="headerlink" href="#step-8b-game-over-hide-smaller-85" title="Link to this heading">#</a></h2>
+<p><strong>Step 8b</strong>: Finally, update the <code class="docutils literal notranslate"><span class="pre">animate</span></code> function to check if the <code class="docutils literal notranslate"><span class="pre">ball</span></code> hit the bottom wall and call the <code class="docutils literal notranslate"><span class="pre">game_over</span></code> function.</p>
+<div class="highlight-{.python notranslate"><div class="highlight"><pre><span></span>def animate():
+    ball.draw()
+    paddle.draw()
+    if not ball.hit_bottom:
+        tk.after(10, animate)  # Schedule next update in 10ms
+    else:
+        game_over()
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topics/gui"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pong">What is Pong?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-canvas-hide-smaller-85">Step 1: Create the Canvas {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-stationary-ball-hide-smaller-85">Step 2: Create a Stationary Ball {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3a-ball-motion-with-wall-detection-hide-smaller-85">Step 3a: Ball Motion with Wall Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3b-animating-the-ball-hide-smaller-85">Step 3b: Animating the Ball {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-the-paddle-hide-smaller-85">Step 4: Create the Paddle {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5a-paddle-motion-hide-smaller-85">Step 5a: Paddle Motion {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5b-animate-the-paddle-hide-smaller-85">Step 5b: Animate the Paddle {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6a-paddle-collision-detection-hide-smaller-85">Step 6a: Paddle Collision Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6b-ball-collision-movement-hide-smaller-85">Step 6b: Ball Collision Movement {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-hit-bottom-wall-detection-hide-smaller-85">Step 7: Hit Bottom Wall Detection {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8a-game-over-functionality-hide-smaller-85">Step 8a: Game Over Functionality {.hide .smaller-85}</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8b-game-over-hide-smaller-85">Step 8b: Game Over {.hide .smaller-85}</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

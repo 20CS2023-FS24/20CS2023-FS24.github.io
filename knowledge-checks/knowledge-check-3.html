@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Knowledge Check 3 &#8212; Python Programming (CS2023)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/quarto-styles.css?v=2acfc168" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3afe5843" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'knowledge-checks/knowledge-check-3';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Knowledge Check 4" href="knowledge-check-4.html" />
+    <link rel="prev" title="Knowledge Check 2" href="knowledge-check-2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../syllabus/cs2023.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uc_logo.svg" class="logo__image only-light" alt="Python Programming (CS2023) - Home"/>
+    <img src="../_static/uc_logo.svg" class="logo__image only-dark pst-js-only" alt="Python Programming (CS2023) - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus/cs2023.html">
+                    Python Programming (CS 2023)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Syllabus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/24fs/24fs.html">Fall Semester 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/instructor-information.html">Instructor Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/assessment-plan-and-policies.html">Assessment Plan and Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/grading-policy.html">Grading Policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syllabus/university-policies.html">University Policies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Course Material</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures.html">Lecture Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-1-27AUG2024.html">Lecture 1, Aug 27, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/day1/class-profile.html">Class Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/day1/claude-3.5-sonnet-demonstration.html">Claude 3.5 Sonnet Demonstration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-2-29AUG2024.html">Lecture 2, Aug 29, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-shell/python-shell.html">Python Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/ipython-shell/ipython-shell.html">IPython Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/jupyter-notebooks/jupyter-notebooks.html">Jupyter Notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-scripts/python-scripts.html">Python Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-interpreter/interpreter-basics.html">Basics of the Python Interpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/python-style-guide/python-style-guide.html">Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/variables-and-data-types.html">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/numerics/numeric-types.html">Numeric Types</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../topics/booleans/boolean-type.html">Boolean Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/strings/string-type.html">String Type</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-3-03SEP2024.html">Lecture 3, Sep 3, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists.html">Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists-shallow-and-deep-copy.html">Lists: Shallow and Deep Copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/lists/lists-hands-on.html">Lists: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/tuples/tuples.html">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/tuples/tuples-hands-on.html">Tuples: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/packing-and-unpacking/packing-and-unpacking.html">Packing and Unpacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/packing-and-unpacking/argument-packing-hands-on.html">Argument Packing: Hands-On Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-4-05SEP2024.html">Lecture 4, Sep 5, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionary-performance-additional-explanation.html">Dictionary Performance: Additional Explanation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/dictionaries-hands-on.html">Dictionaries: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/dictionaries/hash-tables-conceptual-overview.html">Hash Tables: Conceptual Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/sets/sets.html">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/sets/sets-hands-on.html">Sets: Hands-On Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/data-structures-use-cases.html">Data Structures: Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/type-checking.html">Type Checking</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-5-10SEP2024.html">Lecture 5, Sep 10, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/functions/functions.html">Functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../lectures/lecture-6-12SEP2024.html">Lecture 6, Sep 12, 2024</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/logical-comparisons.html">Logical Comparisons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/conditional-statements.html">Conditional Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/controlling-program-flow/loops.html">Loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-7-17SEP2024.html">Lecture 7, Sep 17, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-8-19SEP2024.html">Lecture 8, Sep 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-9-24SEP2024.html">Lecture 9, Sep 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-10-26SEP2024.html">Lecture 10, Sep 26, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-11-01OCT2024.html">Lecture 11, October 1, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-12-03OCT2024.html">Lecture 12, October 3, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-13-08OCT2024.html">Lecture 13, October 8, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-14-15OCT2024.html">Lecture 14, October 15, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-15-22OCT2024.html">Lecture 15, October 22, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-16-24OCT2024.html">Lecture 16, October 24, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-17-29OCT2024.html">Lecture 17, October 29, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-18-31OCT2024.html">Lecture 18, October 31, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-19-05NOV2024.html">Lecture 19, November 5, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-20-07NOV2024.html">Lecture 20, November 7, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-21-12NOV2024.html">Lecture 21, November 12, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-22-14NOV2024.html">Lecture 22, November 14, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-23-19NOV2024.html">Lecture 23, November 19, 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/lecture-24-21NOV2024.html">Lecture 24, November 21, 2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises.html">Practice Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/01_strings.html">String Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/02_numbers.html">Number Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/03_lists.html">List Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/04_tuples.html">Tuple Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises/05_sets.html">Sets and Frozen Sets Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../knowledge-checks.html">Knowledge Checks</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-1.html">Knowledge Check 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-2.html">Knowledge Check 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Knowledge Check 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="knowledge-check-4.html">Knowledge Check 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../programming-assignments.html">Programming Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../programming-assignments/assignment-1/assignment-1.html">Assignment 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/user-class.html"><code class="docutils literal notranslate"><span class="pre">User</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/post-class.html"><code class="docutils literal notranslate"><span class="pre">Post</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/comment-class.html"><code class="docutils literal notranslate"><span class="pre">Comment</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-1/reference-material.html">Reference Material</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../programming-assignments/assignment-2/assignment-2.html">Assignment 2: QuizMe</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/question-abstract-base-class.html"><code class="docutils literal notranslate"><span class="pre">Question</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/truefalse-class.html"><code class="docutils literal notranslate"><span class="pre">TrueFalse</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/shortanswer-class.html"><code class="docutils literal notranslate"><span class="pre">ShortAnswer</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/box-class.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/boxmanager-class.html"><code class="docutils literal notranslate"><span class="pre">BoxManager</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/arcontroller-class.html"><code class="docutils literal notranslate"><span class="pre">ARController</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../programming-assignments/assignment-2/quizme.html"><code class="docutils literal notranslate"><span class="pre">quizme</span></code> CLI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../programming-assignments/assignment-3/assignment-3.html">Assignment 3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../faqs.html">FAQs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faqs/github_student_benefits.html">GitHub Student Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../faqs/oreilly_access.html">How do I access O’Reilly books?</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../external-links.html">External Links</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://github.com">GitHub</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Odds and End</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../disclaimer.html">Disclaimer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/loudinb/20CS2023/blob/main/docs/knowledge-checks/knowledge-check-3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/knowledge-checks/knowledge-check-3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Knowledge Check 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="knowledge-check-3">
+<h1>Knowledge Check 3<a class="headerlink" href="#knowledge-check-3" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>What keyword is used to indicate we are defining a function?</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>Which statement expresses that a function maps elements from the domain to the range?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> f: D→R</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> f(D,R)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> f: D==R</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Anonymous functions in python are defined with what keyword?</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Arguments can be passed only by position.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="5">
+<li><p>This is an example of passing arguments by _____________.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mess</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;To </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">mess</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Happy Fall&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;You&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="6">
+<li><p>This is an example of passing arguments by _____________.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mess</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;To </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">mess</span><span class="p">(</span><span class="s2">&quot;You&quot;</span><span class="p">,</span> <span class="s2">&quot;Happy Fall&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>Passing mutable input arguments to a function and changing them inside the function can change them outside the function too.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="8">
+<li><p>Which of the following is an example of assigning a default value to a parameter in this function?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">__________</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span>
+</pre></div>
+</div>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> x1, x2=0</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> x1:0, x2</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> x1, x2</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="9">
+<li><p>All keyword arguments are not needed as long as those omitted arguments have default values in the function definition.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="10">
+<li><p>What operator is used to unpack a list or tuple?</p></li>
+</ol>
+<ol class="arabic" start="11">
+<li><p>You don’t know how many people will attend your club meeting, but you want to make a record of who attended by passing names through our function. Fill in the blank to unpack the arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">record_attendance</span><span class="p">(</span><span class="n">meeting_date</span><span class="p">,</span> <span class="n">_______</span><span class="p">):</span>
+    <span class="c1"># could save the data somewhere</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;meeting_date: &quot;</span><span class="p">,</span> <span class="n">meeting_date</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;People who attended: &quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+
+<span class="c1"># after the meeting, we pass our arguments</span>
+<span class="n">record_attendance</span><span class="p">(</span><span class="s2">&quot;9/8&quot;</span><span class="p">,</span> <span class="s2">&quot;Jonathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Andrew&quot;</span><span class="p">,</span> <span class="s2">&quot;Matthew&quot;</span><span class="p">,</span> <span class="s2">&quot;Megan&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">meeting_date</span><span class="p">:</span>  <span class="mi">9</span><span class="o">/</span><span class="mi">8</span>
+<span class="n">People</span> <span class="n">who</span> <span class="n">attended</span><span class="p">:</span>  <span class="p">(</span><span class="s1">&#39;Jonathan&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrew&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthew&#39;</span><span class="p">,</span> <span class="s1">&#39;Megan&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="12">
+<li><p>Match to the purpose</p>
+<p>*args</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> collects positional arguments</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> collects keyword arguments</p></li>
+</ul>
+<p>*kwargs</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> collects positional arguments</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> collects keyword arguments</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="13">
+<li><p>What is the documentation called when it is below a function is denoted with <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>?</p></li>
+</ol>
+<ol class="arabic simple" start="14">
+<li><p>You can pass functions as arguments, rename them, or delete them.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="15">
+<li><p>Which of the following are true about lambda functions?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> They are single-expression functions that encapsulate one logical operation,</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> You can assign it to a variable name</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The def keyword is necessary</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> lambda functions are always used as decorators</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="16">
+<li><p>You want to add some functionality to boring_house() by implementing a decorator. What code is missing?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">landscape</span><span class="p">(</span><span class="n">house</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before landscaping: </span><span class="si">{</span><span class="n">house</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_lanscaping</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After adding landscaping 🌳</span><span class="si">{</span><span class="n">house</span><span class="p">()</span><span class="si">}</span><span class="s2">🌾🪻🌳&quot;</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">add_lanscaping</span>
+
+<span class="k">def</span> <span class="nf">boring_house</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;🏠&quot;</span>
+
+<span class="n">boring_house</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Before landscaping: 🏠
+After adding landscaping 🌳🏠🌾🪻🌳
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic simple" start="17">
+<li><p>A function that calls itself is called a(n) ____________ function.</p></li>
+</ol>
+<ol class="arabic simple" start="18">
+<li><p>The number of levels passed by the execution of a recursive function is called the ________ ________.</p></li>
+</ol>
+<ol class="arabic simple" start="19">
+<li><p>Which of the following are iterable objects?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> lists</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> tuples</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> strings</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> dictionaries</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="20">
+<li><p>What is the value of x before the break condition occurs?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span><span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic simple" start="21">
+<li><p>What function do you use on an iterable if you’d like keep the index for each element when iterating through it?</p></li>
+</ol>
+<ol class="arabic simple" start="22">
+<li><p>Which of the following are valid iterator tools?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> enumerate</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> reversed</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> parse</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> split</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="23">
+<li><p>What logical comparison operator do you use to compare two values?</p></li>
+</ol>
+<ol class="arabic simple" start="24">
+<li><p>When performing comparisons in Python using operators like <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, the result of the evaluation is always of what type?</p></li>
+</ol>
+<ol class="arabic" start="25">
+<li><p>Match the operator to the description.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> less than or equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> not equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> greater than</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> less than or equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> not equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> greater than</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">==</span></code></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> less than or equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> not equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> greater than</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> less than or equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> not equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> equal to</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> greater than</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="26">
+<li><p>Which of the following are considered <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 0</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> set()</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 1</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> None</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="27">
+<li><p>What is this type of evaluation between x and y called?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;both true&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> short-circuit evulation</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> shortcut evaluation</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> lazy evaluation</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="28">
+<li><p>What type of loop can be used to repeat a code block until a condition is fulfilled?</p></li>
+</ol>
+<ol class="arabic simple" start="29">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement is an extension of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement that allows you to execute one block of code if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> and another block of code if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="30">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> statement is an extension of the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement that allows you to evaluate multiple conditions.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="31">
+<li><p>What keyword is used as the short version of <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code>?</p></li>
+</ol>
+<ol class="arabic simple" start="32">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__________</span></code> statement can be used to replace complex <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> chains.</p></li>
+</ol>
+<ol class="arabic simple" start="33">
+<li><p>What statement do you use to help prevent an infinite while loop?</p></li>
+</ol>
+<ol class="arabic simple" start="34">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> statement skips the rest of the current iteration and moves to the next iteration.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="35">
+<li><p>_______ loops are often used when working with multidimensional data structures?  (single word answer)</p></li>
+</ol>
+<p>(just fyi…. like on tensors if you’re into ML!)</p>
+<ol class="arabic simple" start="36">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is required.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="37">
+<li><p>We try to avoid global variables because it can be difficult to keep track of their values and can encourage convoluted control flow of the program.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic" start="38">
+<li><p>What error does this return?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">define_local</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="n">local_variable</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="k">return</span> <span class="n">local_variable</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">local_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> NameError: name ‘local_variable’ is not defined</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> SyntaxError: expected ‘:’</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> TypeError: can only concatenate str (not “int”) to str</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="39">
+<li><p>Arguments are passed by assignment, meaning a _________ to the object is passed to the function.</p></li>
+</ol>
+<ol class="arabic simple" start="40">
+<li><p>You can access the docstring of a function using the __________ attribute.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>doc</strong></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>iter</strong></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>comments</strong></p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="41">
+<li><p>What is the technique called when some arguments of a function are fixed?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> partial application</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> semi function</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> static argumentation</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="42">
+<li><p>The primary benefit of using partial application in Python is which of the following?</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> By fixing some arguments of a function, it can be called with less and make it simpler</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Faster performance can be achieved</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> The function becomes immutable</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="43">
+<li><p>What is the term for a function that retains access to variables from its surrounding scope, even after that scope has finished executing?</p></li>
+</ol>
+<ol class="arabic simple" start="44">
+<li><p>When our recursion continues until all your available memory is used, your Python interpreter can crash without further exception.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="45">
+<li><p>True or False: In Python, the maximum recursion depth can be modified using the sys module.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="46">
+<li><p>You can create your own iterator by using the keyword <code class="docutils literal notranslate"><span class="pre">______</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="47">
+<li><p>A closure is formed when an inner function is defined within an outer function.</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> True</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> False</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="48">
+<li><p>Give one example of a higher-order function that take other functions as arguments.</p></li>
+</ol>
+<ol class="arabic" start="49">
+<li><p>The below code checks if x is ________.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="50">
+<li><p>What do we call the function inside a decorator called?</p>
+<p>The ________ function.</p>
+</li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./knowledge-checks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="knowledge-check-2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Knowledge Check 2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="knowledge-check-4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Knowledge Check 4</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brian Loudin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
