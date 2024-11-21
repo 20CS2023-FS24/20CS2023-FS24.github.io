@@ -438,7 +438,7 @@
 </ul>
 </section>
 
-<section id="requirements.txt" class="title-slide slide level2 smaller-90 center">
+<section id="requirements.txt" class="title-slide slide level2 smaller-80 center">
 <h2><code>requirements.txt</code></h2>
 <p>A requirements file is a simple text file that contains a list of Python packages that are required for the project. You can create a <code>requirements.txt</code> file in the same directory as this notebook with the following contents:</p>
 <pre><code>requests
@@ -490,6 +490,7 @@ plotly</code></pre>
 
 <section id="test-code" class="title-slide slide level2 hide smaller-55 center">
 <h2>Test Code</h2>
+<p>Let’s make sure your API token is working by running the following code, which will download the weather data for the Cincinnati/Northern Kentucky International Airport weather station for the month of October 2024.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> requests</span>
 <span id="cb6-2"><a href=""></a><span class="im">import</span> os</span>
 <span id="cb6-3"><a href=""></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
@@ -521,7 +522,9 @@ plotly</code></pre>
 <span id="cb6-29"><a href=""></a></span>
 <span id="cb6-30"><a href=""></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
 <span id="cb6-31"><a href=""></a>    data <span class="op">=</span> response.json()</span>
-<span id="cb6-32"><a href=""></a>    <span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-32"><a href=""></a></span>
+<span id="cb6-33"><a href=""></a><span class="co">## Print the first 5 results</span></span>
+<span id="cb6-34"><a href=""></a>data[<span class="st">'results'</span>][:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 
 <section id="basic-temperature-forecasting" class="title-slide slide level2 hide smaller-85 center">
